@@ -20,3 +20,11 @@
 /config/application.yml
 
 /app/codesnip
+
+# */.keep
+# .keep
+# */*/.keep
+
+/doc/app
+/doc/api
+/doc/guides
