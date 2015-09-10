@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -42,16 +40,9 @@ gem 'draper'
 
 gem 'momentjs-rails'
 
-gem 'activemerchant'
-
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 
-# gem 'bootstrap3-datetimepicker-rails'
-# gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
-# gem 'bootstrap-datepicker-rails'
-# gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
-# gem 'bootstrap-daterangepicker-rails'
 gem 'bootstrap3-datetimepicker-rails'
 
 gem 'pry-rails'
@@ -68,6 +59,8 @@ gem 'pry-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
