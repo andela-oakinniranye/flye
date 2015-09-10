@@ -1,0 +1,8 @@
+deployment:
+  develop:
+    branch: master
+    heroku:
+      appname: flye
+machine:
+  ruby:
+    version: 2.2.2
