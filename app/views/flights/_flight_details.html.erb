@@ -1,0 +1,34 @@
+<div class="booking-item-payment">
+  <header class="clearfix">
+    <h5 class="mb0"><%= "#{ flight.origin.location } - #{ flight.destination.location}" %></h5>
+  </header>
+  <ul class="booking-item-payment-details">
+    <li>
+      <h5>Flight Details</h5>
+      <div class="booking-item-payment-flight">
+        <div class="row">
+          <div class="col-md-12">
+            <% passengers_count = @booking.passengers.count %>
+            <%= content_tag :span, nil, id: 'flight_price_span', data: {flight_price: flight.price, total_passengers: passengers_count, action_span: "#{controller_name}_#{action_name}"  }%>
+            <div class="booking-item-flight-details">
+              <div class="booking-item-departure col-md-6">
+                <i class="fa fa-plane"></i>
+                <h5><%= flight.departure_date.strftime("%-l:%M %p") %></h5>
+                <p class="booking-item-date"><%= flight.departure_date.strftime("%a, %b %-d")%></p>
+                <p class="booking-item-destination"><%= "#{ flight.origin.location }, #{ flight.origin.symbol }" %></p>
+              </div>
+              <div class="booking-item-arrival col-md-6">
+                <i class="fa fa-plane fa-flip-vertical"></i>
+                <h5><%= flight.arrival_date.strftime("%-l:%M %p") %></h5>
+                <p class="booking-item-date"><%= flight.arrival_date.strftime("%a, %b %-d")%></p>
+                <p class="booking-item-destination"><%= "#{ flight.destination.location }, #{ flight.destination.symbol }" %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <p class="booking-item-payment-total">Total Fare:
+      <span id="total_fare"><%= number_to_currency (flight.price * passengers_count ), delimiter: '.' %></span>
+    </p>
+  </div>

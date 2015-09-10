@@ -1,0 +1,45 @@
+<!-- TOP AREA -->
+<div class="top-area show-onload">
+    <div class="bg-holder full">
+        <div class="bg-front full-height bg-front-mob-rel">
+            <div class="container full-height">
+                <div class="rel full-height">
+                    <div class="tagline visible-lg" id="tagline"><span>It's time to</span>
+                        <ul>
+                            <li>relax</li>
+                            <li>play</li>
+                            <li class="active">discover</li>
+                            <li>find new friends</li>
+                            <li>have fun</li>
+                            <li>explore</li>
+                            <li>go</li>
+                            <li>live</li>
+                            <li>meet</li>
+                            <li>run away</li>
+                            <li>chase shadows</li>
+                            <li>work</li>
+                        </ul>
+                    </div>
+                  <%= render 'layouts/search', airports: @airports %>
+                  </div>
+            </div>
+        </div>
+        <div class="owl-carousel owl-slider owl-carousel-area visible-lg" id="owl-carousel-slider" data-nav="false">
+            <div class="bg-holder full">
+                <div class="bg-mask"></div>
+                <div class="bg-img" style="background-image:url(<%= image_path '196_365_2048x1365.jpg' %>);"></div>
+            </div>
+            <div class="bg-holder full">
+                <div class="bg-mask"></div>
+                <div class="bg-img" style="background-image:url(<%= image_path 'el_inevitable_paso_del_tiempo_2048x2048.jpg' %>);"></div>
+            </div>
+            <div class="bg-holder full">
+                <div class="bg-mask"></div>
+                <div class="bg-img" style="background-image:url(<%= image_path 'viva_las_vegas_2048x1365.jpg' %>);"></div>
+            </div>
+        </div>
+        <div class="bg-img hidden-lg" style="background-image:url(<%= image_path '196_365_2048x1365.jpg' %>);"></div>
+        <div class="bg-mask hidden-lg"></div>
+    </div>
+</div>
+<!-- END TOP AREA  -->

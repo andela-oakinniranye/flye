@@ -1,0 +1,15 @@
+<%= form_tag login_path do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+          <%= email_field_tag :email, params[:email], placeholder: 'Enter Your Email', class: 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+          <%= password_field_tag :password, params[:password], placeholder: 'Enter Your Password', class: 'form-control'%>
+      </div>
+    </div>
+    <%= button_tag 'Log In', class: 'btn btn-primary'%>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<%= form_for(@booking) do |f| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% @booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="passengers">
+    <h3>Passengers</h3>
+    <ul class="list booking-item-passengers">
+      <%= f.fields_for :passengers do |passenger| %>
+        <%= render "bookings/passenger_fields", f: passenger %>
+      <% end %>
+    </ul>
+  </div>
+  <%= f.hidden_field :flight_id, value: params[:flight_id] if params[:flight_id] %>
+  <div class="gap gap-small"></div>
+    <div class="row col-md-6 col-md-offset-3">
+        <div class="col-md-6">
+            <%= link_to_add_fields "Add Another Passenger", f, 'bookings', :passengers, 'btn btn-default', 'Passengers'%>
+        </div>
+        <div class="col-md-6">
+            <%= f.button 'Continue', class: 'btn btn-success' %>
+        </div>
+    </div>
+    <div class="gap gap-small"></div>
+<% end %>

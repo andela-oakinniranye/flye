@@ -1,0 +1,29 @@
+<div class="bg-holder">
+    <div class="bg-mask"></div>
+    <div class="bg-img" style="background-image:url(<%= image_path 'hotel_porto_bay_liberdade_2048x1293.jpg'%>);"></div>
+    <div class="bg-content">
+        <div class="container">
+            <div class="gap gap-big text-center text-white">
+                <h2 class="text-uc mb20">Last Minute Deal</h2>
+                <ul class="icon-list list-inline-block mb0 last-minute-rating">
+                    <li><i class="fa fa-star"></i>
+                    </li>
+                    <li><i class="fa fa-star"></i>
+                    </li>
+                    <li><i class="fa fa-star"></i>
+                    </li>
+                    <li><i class="fa fa-star"></i>
+                    </li>
+                    <li><i class="fa fa-star"></i>
+                    </li>
+                </ul>
+                <h5 class="last-minute-title"><%= @featured_flight.name %></h5>
+                <p class="mb20"><b><%= number_to_currency @featured_flight.price, separator: '.' %></b> / person</p>
+                <p class="last-minute-date"><%= @featured_flight.origin.location %> to <%= @featured_flight.destination.location %></p>
+                <%= link_to @featured_flight, class: "btn btn-lg btn-white btn-ghost" do %>
+                  Book Now <i class="fa fa-angle-right"></i>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

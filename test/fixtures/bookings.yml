@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  passenger_id: 
+  booking_date: 2015-09-01 15:41:47
+  booking_price: 1
+
+two:
+  passenger_id: 
+  booking_date: 2015-09-01 15:41:47
+  booking_price: 1

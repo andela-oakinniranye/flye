@@ -1,0 +1,37 @@
+<header id="main-header">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <%= link_to root_path, class: 'logo' do %>
+                      <%= image_tag 'logo-invert.png'%>
+                    <% end %>
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                </div>
+                <div class="col-md-4">
+                    <div class="top-user-area clearfix">
+                        <ul class="top-user-area-list list list-horizontal list-border">
+                            <li class="top-user-area-avatar">
+                                <a href="user-profile.html">
+                                    <img class="origin round" src="img/amaze_40x40.jpg" alt="Image Alternative text" title="AMaze" />Hi, John</a>
+                            </li>
+                            <li><%= link_to 'Sign Out',logout_path%></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="nav">
+            <ul class="slimmenu" id="slimmenu">
+                <li class="active"><%= link_to 'Home', root_path %></li>
+                <%= content_tag :li if current_user do %>
+                  <%= link_to 'Booking', bookings_path %>
+                <% end %>
+                <li><%= link_to 'Flights', flights_path %></li>
+            </ul>
+        </div>
+    </div>
+</header>
