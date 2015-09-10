@@ -1,0 +1,38 @@
+<table class="table table-bordered table-striped table-booking-history">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Take-off Location</th>
+            <th>Booking Date</th>
+            <th>Flight Date</th>
+            <th>Cost</th>
+            <th>Flight Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% bookings.each do |booking| %>
+        <% flight = booking.flight %>
+        <tr>
+            <td class="booking-history-type"><i class="fa fa-plane"></i><small><%= flight.name %></small>
+            </td>
+            <td class="booking-history-title"><%= "#{flight.origin.location} to #{flight.destination.location}" %></td>
+            <td><%= flight.origin.location %></td>
+            <td><%= booking.created_at.strftime("%a, %b %-d %Y") %></td>
+            <td><%= flight.departure_date.strftime("%b %-d, %Y, %-l:%M%P") %></td>
+            <td><%= number_to_currency booking.amount, delimiter: '.'%></td>
+            <%= flight_status_active_or_canceled(flight) %>
+            </td>
+            <td class="text-center">
+              <div class="btn btn-default">View</div>
+              <%= link_to_cancel_flight_booking(booking)%>
+              </a>
+            </td>
+        </tr>
+        <!-- <tr class="passengers hide">
+          <td>What</td>
+        </tr> -->
+      <% end %>
+    </tbody>
+</table>

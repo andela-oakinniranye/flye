@@ -21,7 +21,8 @@ class BookingsController < ApplicationController
   def new
     @flight = Flight.find(params[:flight_id])
     @booking = @flight.bookings.new
-    @booking.passengers.build
+    build_params = params[:no_of_passengers] || 1
+    build_params.to_i.times{ @booking.passengers.build }
   end
 
   # GET /bookings/1/edit
@@ -117,6 +118,13 @@ class BookingsController < ApplicationController
       if @booking.paid?
         flash[:notice] = "Sorry, you can only edit a booking before payment"
         redirect_to @booking
+      end
+    end
+
+    def can_still_cancel?
+      if @booking.flight.departure_date > DateTime.now
+        flash[:notice] = "You canonly cancel your booking before a flight!"
+        redirect_to request.referer
       end
     end
 end

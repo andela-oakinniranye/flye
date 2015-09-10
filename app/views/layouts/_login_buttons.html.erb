@@ -1,0 +1,7 @@
+<% sign_in_provider.each do |provider, helper| %>
+  <div class="col-md-6">
+  <%= link_to signin_path(provider.to_s), class: "btn #{helper[:class]} col-md-12" do %>
+    <%= "#{content_tag :i, nil, class: "fa #{helper[:icon_class]}"} #{helper[:name]}".html_safe %>
+  <% end %>
+  </div>
+<% end %>

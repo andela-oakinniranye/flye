@@ -1,28 +1,32 @@
 Rails.application.routes.draw do
-  # get 'welcome/index'
 
   resources :bookings, except: [:new]
   resources :users, except: [:show, :index]
 
   get '/profile' => 'users#show', as: :profile
   post '/bookings/:id' => 'bookings#show'
-
-  # get 'users/new' => 'users#new'#, as: :new_user
-  get '/login' => 'users#login', as: :login
-  # post '/'
-  get '/logout' => 'users#logout', as: :logout
-  # resources
   post '/hook' => 'bookings#hook', as: :hook
+  get 'auth/:provider/callback', to: 'users#login', as: :login
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'users#logout', as: 'logout'
 
 
-  resources :flights do
+  resources :flights, only: [:show, :index] do
     get 'bookings/new' => 'bookings#new', as: :new_booking
   end
+  root 'welcome#index'
+
+  # get 'welcome/index'
+
+  # get 'users/new' => 'users#new'#, as: :new_user
+  # get '/login' => 'users#login', as: :login
+  # post '/'
+  # get '/logout' => 'users#logout', as: :logout
+  # resources
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

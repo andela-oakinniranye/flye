@@ -4,7 +4,6 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    # search_params if search_params
     if search_params
       @flights = Flight.search(origin: search_params[:origin] , destination: search_params[:destination], departure_date: search_params[:departure_date].to_s)
       @origin = Airport.find(search_params[:origin])
@@ -82,7 +81,6 @@ class FlightsController < ApplicationController
     end
 
     def search_params
-      # require 'pry' ; binding.pry
       params.require(:flight).permit(:origin, :destination, :departure_date) if params[:flight]
     end
 end

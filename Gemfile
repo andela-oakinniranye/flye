@@ -38,9 +38,14 @@ gem 'rspec-rails'
 
 gem 'font-awesome-sass'
 
+gem 'draper'
+
 gem 'momentjs-rails'
 
 gem 'activemerchant'
+
+gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 
 # gem 'bootstrap3-datetimepicker-rails'
 # gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'

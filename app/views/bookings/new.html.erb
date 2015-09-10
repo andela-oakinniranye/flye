@@ -1,14 +1,19 @@
 <div class="container">
-    <div class="gap gap-small"></div>
+  <div class="gap gap-small"></div>
   <div class="row">
-      <div class="col-md-8">
-<h1>New Booking</h1>
-    <% unless current_user %>
-      <span>You can add more points to your HighFlyer Account By logging in</span>
-        <%= render 'users/login' %>
-    <% end %>
-    <div class="gap gap-small"></div>
-    <%= render 'bookings/form' %>
+    <div class="col-md-8">
+      <% unless current_user %>
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          You can add more points to your HighFlyer Account By logging in
+        </div>
+        <div style="padding: 18px 0; height: 60px;">
+        <%= render 'layouts/login_buttons' %>
+        </div>
+      </div>
+      <% end %>
+      <div class="gap gap-small"></div>
+      <%= render 'bookings/form' %>
     </div>
     <div class="col-md-4">
       <%= render 'flights/flight_details', flight: @flight %>
