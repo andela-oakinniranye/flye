@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   get '/profile' => 'users#show', as: :profile
   post '/bookings/:id' => 'bookings#show'
   post '/hook' => 'bookings#hook', as: :hook
+
   get 'auth/:provider/callback', to: 'users#login', as: :login
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'users#logout', as: 'logout'
+
+
+  get '/book', to: 'bookings#book', as: :book
 
 
   resources :flights, only: [:show, :index] do

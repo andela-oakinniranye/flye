@@ -5,14 +5,13 @@
 // });
 
 
-
 // Reservation Form
     //jQueryUI - Datepicker
-    $(function(){
-      if ($().datepicker) {
-          $('#flight_departure_date').datepicker({
-            // format: 'dd/mm/yyyy',
-            startDate: '+1d'
-          });
-      }
-    })
+$(function(){
+  if ($().datepicker) {
+      $('#flight_departure_date').datepicker({
+        // format: 'dd/mm/yyyy',
+        startDate: '+1d'
+      });
+  }
+});

@@ -1,55 +1,11 @@
-<!-- <div class="col-md-6"> -->
-<%= form_tag flights_path, method: :get, class: "navbar-form search-form" do %>
+<%= form_tag flights_path, method: :get, class: "navbar-form search-form", remote: true do %>
   <div class="search-tabs search-tabs-bg search-tabs-bottom mb50">
       <div class="tabbable col-md-8 col-md-offset-2">
           <ul class="nav nav-tabs" id="myTab">
-              <li class="active"><a href="index-7.html#tab-2" data-toggle="tab"><i class="fa fa-plane"></i> <span >Flights</span></a>
+              <li class="active"><a href="#" data-toggle="tab"><i class="fa fa-plane"></i> <span >Flights</span></a>
               </li>
           </ul>
-          <div class="tab-content">
-            <div class="tab-pane fade in active" id="tab-2">
-              <h4>Search for Cheap Flights</h4>
-                      <div class="tab-content">
-                          <div class="tab-pane fade in active" id="flight-search-1">
-                              <div class="row">
-                                  <div class="col-md-12">
-                                      <div class="row">
-                                          <div class="col-md-6">
-                                              <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                                                  <label>From</label>
-                                                  <%= collection_select :flight, :origin, airports, :id, :name, {include_blank: 'Where are you coming from?'}, {class: 'airport_select', style: 'width: 100%;'}%>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-6">
-                                              <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                                                  <label>To</label>
-                                                  <%= collection_select :flight, :destination, airports, :id, :name, {include_blank: 'Where are you going to?'}, {class: 'airport_select', style: 'width: 100%;'}%>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-12">
-                                      <div class="col-md-4">
-                                        <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                                          <%= text_field_tag "flight[departure_date]", nil, id: 'flight_departure_date', class: 'form-control', style: 'width: 100%;'%>
-                                        </div>
-                                      </div>
-                                      <div class="col-md-4">
-                                        <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                                          <%= text_field_tag "flight[departure_time]", nil, id: 'flight_departure_time', class: 'time-pick form-control', style: 'width: 100%;'%>
-                                        </div>
-                                      </div>
-                                      <div class="col-md-4">
-                                        <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                                          <%= button_tag "Search for Flights", class: 'btn btn-primary btn-lg' %>
-                                        </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-              </div>
-              </div>
+          <%= render 'flights/flight_search', airports: airports%>
       </div>
   </div>
 <% end %>

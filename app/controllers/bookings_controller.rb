@@ -89,6 +89,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def book
+    # render json: params.inspect
+    unless params[:flight_id]
+      flash[:danger] = "Sorry, you have to select a Flight"
+      redirect_to :back and return
+    end
+    redirect_to flight_new_booking_path(params[:flight_id], no_of_passengers: params[:no_of_passengers])
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking

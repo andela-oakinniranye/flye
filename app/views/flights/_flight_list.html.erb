@@ -1,0 +1,64 @@
+  <%= form_tag book_path , method: :get do%>
+  <ul class="booking-list">
+
+  <% flights.each do |flight| %>
+      <%
+        flight_departure = flight.departure_date.strftime("%a, %b %-d %Y")
+        flight_arrival = flight.arrival_date.strftime("%a, %b %-d %Y")
+        diff = (flight.arrival_date - flight.departure_date).to_i
+        flight_travel_time_hours = diff / 1.hour
+        flight_travel_time_mins = (diff / 60) % 60
+        flight_travel_time = "#{flight_travel_time_hours}h #{flight_travel_time_mins}m"
+      %>
+
+  <li>
+    <div class="booking-item-container">
+      <div class="booking-item">
+        <div class="row">
+          <div class="col-md-2 text-center vertical-align">
+            <div class="booking-item-airline-logo">
+              <div class="radio-danger">
+                <%= radio_button_tag :flight_id, flight.id %>
+              </div>
+              <p><%= flight.name %></p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="booking-item-flight-details">
+              <div class="booking-item-departure">
+                <i class="fa fa-plane"></i>
+                <h5><%= flight.departure_date.strftime("%-l:%M%P") %></h5>
+                <p class="booking-item-date"><%=flight_departure  %></p>
+                <p class="booking-item-destination"><%= flight.origin.location%>
+                  <%= flight.origin.symbol %></p>
+              </div>
+              <div class="booking-item-arrival">
+                <i class="fa fa-plane fa-flip-vertical"></i>
+                <h5><%= flight.arrival_date.strftime("%-l:%M%P") %></h5>
+                <p class="booking-item-date"><%= flight_arrival %></p>
+                <p class="booking-item-destination"><%= flight.destination.location %>
+                  <%= flight.destination.symbol %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5><%= flight_travel_time %></h5>
+          </div>
+          <div class="col-md-3">
+            <span class="booking-item-price"><%= number_to_currency flight.price, delimiter: '.' %></span>
+            <span>/person</span>
+            <div>
+              <%= link_to 'Select', flight_new_booking_path(flight), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <% end %>
+  <%= hidden_field_tag :no_of_passengers, no_of_passengers %>
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <%= button_tag "Submit", class: "btn-lg btn-primary flight_select_button" %>
+  </div>
+</ul>
+<% end %>
