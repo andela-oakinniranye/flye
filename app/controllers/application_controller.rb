@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]).decorate if session[:user_id]
   end
+
+  def logged_in?
+    redirect_to (request.referer || root_path) unless current_user
+  end
 end

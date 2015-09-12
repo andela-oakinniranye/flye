@@ -1,13 +1,8 @@
 class UsersController < ApplicationController
   # before_action :logged_in?, only: [:show]
-  before_action :set_and_booking_flights, only: [:show]
-  def new
-    @user = User.new
-  end
+  before_action :logged_in?, only: [:show]
+  before_action :set_user_and_booking_flights, only: [:show]
 
-  def create
-    # @use
-  end
 
   def show
     #code
@@ -28,21 +23,15 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def signup
-
-  end
-
   private
     def user_params
         params.require(:user).permit(:first_name, :last_name, :email, :password)
     end
 
-    def logged_in?
-      redirect_to login_path unless current_user
-    end
 
-    def set_and_booking_flights
-      @bookings = current_user.bookings
+    def set_user_and_booking_flights
+      @bookings = current_user.bookings.includes(:flight)#.includes(:origin).includes(:destination)
+      # @flights =
     end
 
 end

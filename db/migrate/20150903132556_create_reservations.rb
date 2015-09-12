@@ -3,7 +3,7 @@ class CreateReservations < ActiveRecord::Migration
     create_table :reservations do |t|
       t.references :booking, index: true, foreign_key: true
       t.references :passenger, index: true, foreign_key: true
-      t.references :booker, index: true, foreign_key: true
+      t.references :booker, index: true
 
       t.timestamps null: false
     end

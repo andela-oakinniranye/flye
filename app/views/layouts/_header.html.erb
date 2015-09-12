@@ -1,5 +1,5 @@
 <header id="main-header">
-    <div class="header-top">
+    <div class="header-top hide">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -11,24 +11,25 @@
                 </div>
                 <div class="col-md-4">
                     <div class="top-user-area clearfix">
-                      <%= login_signout_profile_helper %>
+                      <%#= login_signout_profile_helper %>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="nav">
-            <ul class="slimmenu" id="slimmenu">
-                <li class="active"><%= link_to 'Home', root_path %></li>
-                <%  if current_user %>
-                  <%= content_tag :li do %>
-                    <%= link_to 'Booking', profile_path %>
-                  <% end %>
-                <% end %>
-                <li><%= link_to 'Flights', flights_path %></li>
-            </ul>
-        </div>
+      <div class="nav">
+        <ul class="slimmenu">
+          <li style="background-color: orange;"><%= link_to root_path, class: 'logo' do %>
+            <%= image_tag 'logo-invert.png'%>
+          <% end %></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Messages</a></li>
+          <li><a href="#">Profile</a></li>
+          <!-- <li class="pull-right"></li> -->
+        </ul>
+      </div>
     </div>
 </header>
 <%= render 'layouts/login_modal' unless current_user %>
+<%= render 'layouts/flights_modal' %>

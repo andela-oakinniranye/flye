@@ -1,0 +1,5 @@
+<%= render 'layouts/search3', airports: @airports %>
+<%= content_tag :h4, "Showing #{flight_count} Search Result For Flights From #{@origin.location} to #{@destination.location}", class: "booking-title text-center" if params[:flight] && flight_count %>
+<div class="search_flight_results">
+  <%= render 'flights/flight_list', flights: @flights, no_of_passengers: @required_passengers %>
+</div>

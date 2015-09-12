@@ -20,7 +20,7 @@
                 <h5 class="last-minute-title"><%= @featured_flight.name %></h5>
                 <p class="mb20"><b><%= number_to_currency @featured_flight.price, separator: '.' %></b> / person</p>
                 <p class="last-minute-date"><%= @featured_flight.origin.location %> to <%= @featured_flight.destination.location %></p>
-                <%= link_to @featured_flight, class: "btn btn-lg btn-white btn-ghost" do %>
+                <%= link_to flight_new_booking_path(@featured_flight), class: "btn btn-lg btn-white btn-ghost" do %>
                   Book Now <i class="fa fa-angle-right"></i>
                 <% end %>
             </div>
