@@ -1,0 +1,8 @@
+<h4>Thank You for Booking</h4>
+<p>Hey <%= @user.first_name %></p>
+<p>
+  <%= "Thanks for booking your flight from #{@booking.flight.origin.location} to #{@booking.flight.destination.location}." %>
+</p>
+<p>
+  Your booking id: <span><%= @booking.uniq_id %></span>
+</p>

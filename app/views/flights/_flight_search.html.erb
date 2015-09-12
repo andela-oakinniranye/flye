@@ -1,44 +1,5 @@
-<div class="tab-content">
-  <div class="tab-pane fade in active" id="tab-2">
-    <h4>Search for Cheap Flights</h4>
-    <div class="tab-content">
-      <div class="tab-pane fade in active" id="flight-search-1">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row">
-              <div class="col-md-6 col-sm-12">
-                <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                  <label>From</label>
-                  <%= collection_select :flight, :origin, airports, :id, :name, {include_blank: 'Where are you coming from?'}, {class: 'airport_select'}%>
-                </div>
-              </div>
-              <div class="col-md-6 col-sm-12">
-                <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                  <label>To</label>
-                  <%= collection_select :flight, :destination, airports, :id, :name, {include_blank: 'Where are you going to?'}, {class: 'airport_select'}%>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="col-md-4">
-              <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                <%= text_field_tag "flight[departure_date]", nil, id: 'flight_departure_date', class: 'form-control', style: 'width: 100%;'%>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                <%= text_field_tag "flight[no_of_passengers]", nil, id: 'flight_departure_time', class: 'time-pick form-control', style: 'width: 100%;'%>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group form-group-lg form-group-icon-left col-md-12">
-                <%= button_tag "Search for Flights", class: 'btn btn-primary btn-lg', id: "flight_search_btn", data: {toggle: 'modal', target: '#flights_modal' } %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<%= render 'layouts/search3', airports: @airports %>
+<%= content_tag :h4, "Showing #{flight_count} Search Result For Flights From #{@origin.location} to #{@destination.location}", class: "booking-title text-center" if params[:flight] && flight_count %>
+<div class="search_flight_results">
+  <%= render 'flights/flight_list', flights: @flights, no_of_passengers: @required_passengers %>
 </div>

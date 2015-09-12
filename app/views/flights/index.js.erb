@@ -1,8 +1,13 @@
 <% unless @flights.blank? %>
-  $(".search_flight_results").html("<%=j render 'flights/flight_list', flights: @flights, no_of_passengers: @required_passengers  %>");
+<% flight_count = @flights.size %>
+  // $(".search_bar").show();
+  $(".search_flight_results")
+                    .html("<%=j render 'flights/flight_list', flights: @flights, no_of_passengers: @required_passengers  %>")
+                    .prepend('<%= search_result_info(@origin, @destination, flight_count) %>');
   $('html,body').animate({
             scrollTop: $(".scroll_to_search_result").offset().top},
             'slow');
 <% else %>
-  toastr.warning("<%= flash[:danger] || flash[:message] %>") 
+  // toastr.warning('<%= "#{flash[:danger] || flash[:message]}" %>')
+  <%= alert_message %>
 <% end %>

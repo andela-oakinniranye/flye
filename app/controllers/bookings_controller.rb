@@ -21,8 +21,8 @@ class BookingsController < ApplicationController
   def new
     @flight = Flight.find(params[:flight_id])
     @booking = @flight.bookings.new
-    build_params = params[:no_of_passengers] || 1
-    build_params.to_i.times{ @booking.passengers.build }
+    build_params = params[:no_of_passengers].blank? ? 1 : params[:no_of_passengers].to_i
+    build_params.times{ @booking.passengers.build }
   end
 
   # GET /bookings/1/edit
@@ -40,6 +40,7 @@ class BookingsController < ApplicationController
         @booking = Booking.find_by_uniq_id(params[:invoice])
         @booking.paid!
         @booking.update(txn_id: params[:txn_id])
+        BookingMailer.booking_mail(@booking).deliver
       when "INVALID"
 
       else

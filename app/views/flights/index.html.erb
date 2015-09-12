@@ -1,16 +1,11 @@
 <% flight_count = @flights.size %>
-<% if params[:flight] && flight_count %>
-<h3 class="booking-title"><%= flight_count.to_s + " Flight".pluralize(flight_count)%>
-  from
-  <%= @origin.location %>
-  to
-  <%= @destination.location %></h3>
-<% end %>
-<%# if params[:flight] && @flights.blank? %>
 
-<div class="col-md-3"></div>
-<div class="col-md-9">
+<div class="col-md-8 col-md-offset-2">
   <div class="gap"></div>
-  <%= render 'flights/flight_list', flights: @flights, no_of_passengers: @required_passengers %>
+  <%= render 'layouts/search3', airports: @airports %>
+  <div class="search_flight_results">
+    <%= search_result_info(@origin, @destination, flight_count) if params[:flight] && flight_count > 0 %>
+    <%= render 'flights/flight_list', flights: @flights, no_of_passengers: @required_passengers %>
+  </div>
 </div>
-  <div class="gap"></div>
+<div class="gap"></div>

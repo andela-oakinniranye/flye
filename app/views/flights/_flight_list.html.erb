@@ -48,7 +48,8 @@
             <span class="booking-item-price"><%= number_to_currency flight.price, delimiter: '.' %></span>
             <span>/person</span>
             <div>
-              <%= link_to 'Select', flight_new_booking_path(flight), class: "btn btn-primary" %>
+              <% passengers = no_of_passengers.blank? ?  nil : {no_of_passengers: no_of_passengers} %>
+              <%= link_to 'Select', flight_new_booking_path(flight, passengers), class: "btn btn-primary" %>
             </div>
           </div>
         </div>
@@ -58,7 +59,7 @@
   <% end %>
   <%= hidden_field_tag :no_of_passengers, no_of_passengers %>
   <div class="col-md-6 col-md-offset-3 text-center">
-    <%= button_tag "Submit", class: "btn-lg btn-primary flight_select_button" %>
+    <%= button_tag "Book Flight", class: "btn-lg btn-primary flight_select_button" %>
   </div>
 </ul>
 <% end %>

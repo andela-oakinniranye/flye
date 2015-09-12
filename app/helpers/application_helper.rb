@@ -22,4 +22,16 @@ module ApplicationHelper
       end
     end
   end
+
+  def alert_script
+    if flash[:danger] || flash[:message]
+      content_tag :script, type: "text/javascript" do
+        alert_message
+      end
+    end
+  end
+
+  def alert_message
+    "toastr.warning(\"#{flash[:message] || flash[:danger]}\")".html_safe
+  end
 end
