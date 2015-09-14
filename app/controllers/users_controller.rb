@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
-  # before_action :logged_in?, only: [:show]
   before_action :logged_in?, only: [:show]
   before_action :set_user_and_booking_flights, only: [:show]
 
 
   def show
-    #code
   end
 
   def login
@@ -30,8 +28,7 @@ class UsersController < ApplicationController
 
 
     def set_user_and_booking_flights
-      @bookings = current_user.bookings.includes(:flight)#.includes(:origin).includes(:destination)
-      # @flights =
+      @bookings = current_user.bookings.includes(:flight)
     end
 
 end

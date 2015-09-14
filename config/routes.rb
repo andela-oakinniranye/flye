@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :bookings, except: [:new]
+  resources :bookings, except: [:new, :edit, :update]
   resources :users, except: [:show, :index]
 
   get '/profile' => 'users#show', as: :profile
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
 
   resources :flights, only: [:show, :index] do
-    get 'bookings/new' => 'bookings#new', as: :new_booking
+    resources :bookings, only: [:new]
   end
   root 'welcome#index'
 

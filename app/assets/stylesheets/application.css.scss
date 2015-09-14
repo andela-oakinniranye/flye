@@ -17,8 +17,10 @@
  // @import 'bootstrap-datetimepicker';
  // @import "bootstrap-sprockets";
  // @import "bootstrap";
- 
+
  *= require bootstrap
  *= require_tree .
  *= require_self
  */
+ @import "font-awesome-sprockets";
+ @import "font-awesome";

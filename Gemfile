@@ -66,10 +66,16 @@ group :production do
 end
 
 group :development, :test do
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+
+  gem 'guard'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  gem 'guard-rails', require: false
 
   gem 'letter_opener'
   # Access an IRB console on exception pages or by using <%= console %> in views
