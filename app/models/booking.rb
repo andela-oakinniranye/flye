@@ -25,12 +25,12 @@ class Booking < ActiveRecord::Base
         item_name: "Flight booking from #{self.flight.origin.location} to #{self.flight.destination.location}",
         item_number: id,
         quantity: self.passengers.count,
-        notify_url: "#{ENV['notify_url']}/hook"
+        notify_url: "#{ENV['paypal_notify_url']}/hook"
     }
     "#{ENV['paypal_host']}/cgi-bin/webscr?" + values.to_query
   end
 
-  def self.notify_url
+  def self.validate_url
     "#{ENV['paypal_host']}/cgi-bin/webscr?cmd=_notify-validate"
   end
 

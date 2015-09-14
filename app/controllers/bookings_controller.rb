@@ -110,7 +110,7 @@ class BookingsController < ApplicationController
     end
 
     def validate_IPN_notification(raw)
-      uri = URI.parse(Booking.notify_url)
+      uri = URI.parse(Booking.validate_url)
       http = Net::HTTP.new(uri.host, uri.port)
       http.open_timeout = 60
       http.read_timeout = 60
