@@ -31,7 +31,25 @@ module ApplicationHelper
     end
   end
 
+  def turn_model_error_message_hash_to_readable_string(flash_message)
+    if flash_message.is_a? Array
+      flash_message.each do |message|
+        content_tag :li do
+          message.to_s
+        end
+      end
+    end
+  end
+
   def alert_message
-    "toastr.warning(\"#{flash[:message] || flash[:danger]}\")".html_safe
+    flash_message = flash[:message] || flash[:danger]
+    if flash_message.is_a? String
+      flash_content =  "#{flash_message}"
+    else
+      flash_content = "#{turn_model_error_message_hash_to_readable_string(flash_message)}"
+    end
+    # flash_content =  "#{flash_message}" : turn_model_error_message_hash_to_readable_string(flash_message)
+    "toastr.warning(\'#{flash_content}\')".html_safe
+    # flash[:message] || flash[:danger]
   end
 end

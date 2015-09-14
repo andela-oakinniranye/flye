@@ -1,16 +1,16 @@
 class BookingMailer < ApplicationMailer
   default from: 'booking@flye.com'
 
-  def booking_mail(booking)
+  def send_booking_mail(booking)
     @booking = booking
     booking.passengers.each do |passenger|
-      BookingMailer.passenger_ticket_mail(passenger, booking.flight).deliver
+      BookingMailer.send_passenger_ticket_mail(passenger, booking.flight).deliver_now
     end
     thank_you_for_booking_mail(booking.user.decorate) if booking.user
   end
 
 
-  def passenger_ticket_mail(passenger, flight)
+  def send_passenger_ticket_mail(passenger, flight)
     @passenger = passenger
     @flight = flight
     email_with_name = %("#{@passenger.first_name}" <#{@passenger.email}>)

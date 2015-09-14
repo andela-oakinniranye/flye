@@ -7,9 +7,9 @@ class Booking < ActiveRecord::Base
   has_many :passengers, through: :reservations
   belongs_to :user
   accepts_nested_attributes_for :passengers, allow_destroy: true, reject_if: :all_blank
-  # accepts_nested_attributes_for :reservations, allow_destroy: true, reject_if: :all_blank
-  # accepts_nested_attributes_for :passengers, reject_if: :all_blank
   enum status: [:unpaid, :paid]
+  validate :that_it_has_passengers
+  validates :flight, presence: true
 
   def add_uniq_id
     self.uniq_id = SecureRandom.hex
@@ -37,5 +37,11 @@ class Booking < ActiveRecord::Base
   def calculate_cost
     cost = flight.price * passengers.size
     self.amount = cost
+  end
+
+  def that_it_has_passengers
+    if self.passengers.blank?
+      errors.add(:passengers, "You need to add at least one passenger")
+    end
   end
 end

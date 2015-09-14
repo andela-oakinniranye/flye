@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    redirect_to (request.referer || root_path) unless current_user
+    unless current_user
+      flash[:danger] = "You need to log in to perform this operation"
+      redirect_to (request.referer || root_path)
+    end
   end
 end

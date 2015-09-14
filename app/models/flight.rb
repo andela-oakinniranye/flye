@@ -4,11 +4,19 @@ class Flight < ActiveRecord::Base
   has_many :bookings
   has_many :passengers, through: :bookings
 
-  # def
+  validates :origin, presence: true
+  validates :destination, presence: true
+  validate :origin_and_destination_are_not_the_same
+
+  def origin_and_destination_are_not_the_same
+    if origin == destination
+      errors.add(:origin, "Origin and Departure point cannot be the same")
+    end
+  end
 
   def self.search(destination: nil, origin: nil, departure_date: '')
-      date = Time.zone.parse(departure_date)
-      range = date + 1.month if date
+    date = Time.zone.parse(departure_date)
+    range = date + 1.month if date
 
     if date.nil?
       where(destination: destination, origin: origin).closest.fetch_all
@@ -18,7 +26,7 @@ class Flight < ActiveRecord::Base
   end
 
   def self.closest
-    where('departure_date >= ?', Date.today)
+    where('departure_date >= ?', DateTime.now).order(departure_date: 'asc')
   end
 
   def self.featured
@@ -26,6 +34,6 @@ class Flight < ActiveRecord::Base
   end
 
   def self.fetch_all
-    includes(:origin).includes(:destination)
+    closest.includes(:origin).includes(:destination)
   end
 end

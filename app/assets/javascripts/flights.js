@@ -23,7 +23,6 @@ $(function(){
     var check_no_origin_or_destination = no_origin_or_destination(origin, destination);
     if(check_same_location || check_no_origin_or_destination){
       e.preventDefault();
-      // console.log("I got here");
     }
   });
 

@@ -5163,6 +5163,257 @@ button.close {
     display: none !important;
   }
 }
+.checkbox {
+  padding-left: 20px;
+}
+.checkbox label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+.checkbox label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+.checkbox label::after {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  top: 0;
+  margin-left: -20px;
+  padding-left: 3px;
+  padding-top: 1px;
+  font-size: 11px;
+  color: #555555;
+}
+.checkbox input[type="checkbox"],
+.checkbox input[type="radio"] {
+  opacity: 0;
+  z-index: 1;
+}
+.checkbox input[type="checkbox"]:focus + label::before,
+.checkbox input[type="radio"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.checkbox input[type="checkbox"]:checked + label::after,
+.checkbox input[type="radio"]:checked + label::after {
+  font-family: "FontAwesome";
+  content: "\f00c";
+}
+.checkbox input[type="checkbox"]:disabled + label,
+.checkbox input[type="radio"]:disabled + label {
+  opacity: 0.65;
+}
+.checkbox input[type="checkbox"]:disabled + label::before,
+.checkbox input[type="radio"]:disabled + label::before {
+  background-color: #eeeeee;
+  cursor: not-allowed;
+}
+.checkbox.checkbox-circle label::before {
+  border-radius: 50%;
+}
+.checkbox.checkbox-inline {
+  margin-top: 0;
+}
+
+.checkbox-primary input[type="checkbox"]:checked + label::before,
+.checkbox-primary input[type="radio"]:checked + label::before {
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+.checkbox-primary input[type="checkbox"]:checked + label::after,
+.checkbox-primary input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+.checkbox-danger input[type="checkbox"]:checked + label::before,
+.checkbox-danger input[type="radio"]:checked + label::before {
+  background-color: #d9534f;
+  border-color: #d9534f;
+}
+.checkbox-danger input[type="checkbox"]:checked + label::after,
+.checkbox-danger input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+.checkbox-info input[type="checkbox"]:checked + label::before,
+.checkbox-info input[type="radio"]:checked + label::before {
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+}
+.checkbox-info input[type="checkbox"]:checked + label::after,
+.checkbox-info input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+.checkbox-warning input[type="checkbox"]:checked + label::before,
+.checkbox-warning input[type="radio"]:checked + label::before {
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+.checkbox-warning input[type="checkbox"]:checked + label::after,
+.checkbox-warning input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+.checkbox-success input[type="checkbox"]:checked + label::before,
+.checkbox-success input[type="radio"]:checked + label::before {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+.checkbox-success input[type="checkbox"]:checked + label::after,
+.checkbox-success input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+.radio {
+  padding-left: 20px;
+}
+.radio label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+.radio label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out;
+}
+.radio label::after {
+  display: inline-block;
+  position: absolute;
+  content: " ";
+  width: 11px;
+  height: 11px;
+  left: 3px;
+  top: 3px;
+  margin-left: -20px;
+  border-radius: 50%;
+  background-color: #555555;
+  -webkit-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+}
+.radio input[type="radio"] {
+  opacity: 0;
+  z-index: 1;
+}
+.radio input[type="radio"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.radio input[type="radio"]:checked + label::after {
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+.radio input[type="radio"]:disabled + label {
+  opacity: 0.65;
+}
+.radio input[type="radio"]:disabled + label::before {
+  cursor: not-allowed;
+}
+.radio.radio-inline {
+  margin-top: 0;
+}
+
+.radio-primary input[type="radio"] + label::after {
+  background-color: #337ab7;
+}
+.radio-primary input[type="radio"]:checked + label::before {
+  border-color: #337ab7;
+}
+.radio-primary input[type="radio"]:checked + label::after {
+  background-color: #337ab7;
+}
+
+.radio-danger input[type="radio"] + label::after {
+  background-color: #d9534f;
+}
+.radio-danger input[type="radio"]:checked + label::before {
+  border-color: #d9534f;
+}
+.radio-danger input[type="radio"]:checked + label::after {
+  background-color: #d9534f;
+}
+
+.radio-info input[type="radio"] + label::after {
+  background-color: #5bc0de;
+}
+.radio-info input[type="radio"]:checked + label::before {
+  border-color: #5bc0de;
+}
+.radio-info input[type="radio"]:checked + label::after {
+  background-color: #5bc0de;
+}
+
+.radio-warning input[type="radio"] + label::after {
+  background-color: #f0ad4e;
+}
+.radio-warning input[type="radio"]:checked + label::before {
+  border-color: #f0ad4e;
+}
+.radio-warning input[type="radio"]:checked + label::after {
+  background-color: #f0ad4e;
+}
+
+.radio-success input[type="radio"] + label::after {
+  background-color: #5cb85c;
+}
+.radio-success input[type="radio"]:checked + label::before {
+  border-color: #5cb85c;
+}
+.radio-success input[type="radio"]:checked + label::after {
+  background-color: #5cb85c;
+}
+
+input[type="checkbox"].styled:checked + label:after,
+input[type="radio"].styled:checked + label:after {
+  font-family: 'FontAwesome';
+  content: "\f00c";
+}
+input[type="checkbox"] .styled:checked + label::before,
+input[type="radio"] .styled:checked + label::before {
+  color: #fff;
+}
+input[type="checkbox"] .styled:checked + label::after,
+input[type="radio"] .styled:checked + label::after {
+  color: #fff;
+}
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -14136,6 +14387,16 @@ footer#main-footer .form-control:focus {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+/* line 3, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/flights.css.scss */
+span.booking-item-price {
+  font-size: 16px;
+}
+
+/* line 7, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/flights.css.scss */
+div.search-tabs-abs {
+  top: 20%;
+}
 /*!
  *  Font Awesome 4.1.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -14145,8 +14406,6 @@ footer#main-footer .form-control:focus {
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../fonts/fontawesome-webfont.eot?v=4.0.3');
-  src: url('../fonts/fontawesome-webfont.svg?v=4.0.3') format('svg'), url('../fonts/fontawesome-webfont.eot?') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -27117,6 +27376,7 @@ img.mfp-img {
 
 
 
+.toast-title{font-weight:700}.toast-message{-ms-word-wrap:break-word;word-wrap:break-word}.toast-message a,.toast-message label{color:#fff}.toast-message a:hover{color:#ccc;text-decoration:none}.toast-close-button{position:relative;right:-.3em;top:-.3em;float:right;font-size:20px;font-weight:700;color:#fff;-webkit-text-shadow:0 1px 0 #fff;text-shadow:0 1px 0 #fff;opacity:.8;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);filter:alpha(opacity=80)}.toast-close-button:focus,.toast-close-button:hover{color:#000;text-decoration:none;cursor:pointer;opacity:.4;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);filter:alpha(opacity=40)}button.toast-close-button{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none}.toast-top-center{top:0;right:0;width:100%}.toast-bottom-center{bottom:0;right:0;width:100%}.toast-top-full-width{top:0;right:0;width:100%}.toast-bottom-full-width{bottom:0;right:0;width:100%}.toast-top-left{top:12px;left:12px}.toast-top-right{top:12px;right:12px}.toast-bottom-right{right:12px;bottom:12px}.toast-bottom-left{bottom:12px;left:12px}#toast-container{position:fixed;z-index:999999;pointer-events:none}#toast-container *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}#toast-container>div{position:relative;pointer-events:auto;overflow:hidden;margin:0 0 6px;padding:15px 15px 15px 50px;width:300px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;background-position:15px center;background-repeat:no-repeat;-moz-box-shadow:0 0 12px #999;-webkit-box-shadow:0 0 12px #999;box-shadow:0 0 12px #999;color:#fff;opacity:.8;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);filter:alpha(opacity=80)}#toast-container>:hover{-moz-box-shadow:0 0 12px #000;-webkit-box-shadow:0 0 12px #000;box-shadow:0 0 12px #000;opacity:1;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);filter:alpha(opacity=100);cursor:pointer}#toast-container>.toast-info{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=)!important}#toast-container>.toast-error{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=)!important}#toast-container>.toast-success{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==)!important}#toast-container>.toast-warning{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=)!important}#toast-container.toast-bottom-center>div,#toast-container.toast-top-center>div{width:300px;margin-left:auto;margin-right:auto}#toast-container.toast-bottom-full-width>div,#toast-container.toast-top-full-width>div{width:96%;margin-left:auto;margin-right:auto}.toast{background-color:#030303}.toast-success{background-color:#51a351}.toast-error{background-color:#bd362f}.toast-info{background-color:#2f96b4}.toast-warning{background-color:#f89406}.toast-progress{position:absolute;left:0;bottom:0;height:4px;background-color:#000;opacity:.4;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);filter:alpha(opacity=40)}@media all and (max-width:240px){#toast-container>div{padding:8px 8px 8px 50px;width:11em}#toast-container .toast-close-button{right:-.2em;top:-.2em}}@media all and (min-width:241px) and (max-width:480px){#toast-container>div{padding:8px 8px 8px 50px;width:18em}#toast-container .toast-close-button{right:-.2em;top:-.2em}}@media all and (min-width:481px) and (max-width:768px){#toast-container>div{padding:15px 15px 15px 50px;width:25em}}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -27136,8 +27396,2503 @@ img.mfp-img {
  // @import 'bootstrap-datetimepicker';
  // @import "bootstrap-sprockets";
  // @import "bootstrap";
- 
+
 
 
 
  */
+/*!
+ *  Font Awesome 4.1.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 12, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa, .im {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* makes the font 33% larger relative to the icon container */
+/* line 22, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+/* line 27, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-2x {
+  font-size: 2em;
+}
+
+/* line 30, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-3x {
+  font-size: 3em;
+}
+
+/* line 33, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-4x {
+  font-size: 4em;
+}
+
+/* line 36, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-5x {
+  font-size: 5em;
+}
+
+/* line 39, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+/* line 43, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+
+/* line 48, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ul > li {
+  position: relative;
+}
+
+/* line 51, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center;
+}
+
+/* line 58, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-li.fa-lg {
+  left: -1.85714286em;
+}
+
+/* line 61, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eeeeee;
+  border-radius: .1em;
+}
+
+/* line 66, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.pull-right {
+  float: right;
+}
+
+/* line 69, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.pull-left {
+  float: left;
+}
+
+/* line 72, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa.pull-left {
+  margin-right: .3em;
+}
+
+/* line 75, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa.pull-right {
+  margin-left: .3em;
+}
+
+/* line 78, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+/* line 118, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* line 126, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 134, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+/* line 142, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+/* line 150, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/* line 158, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+/* line 166, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stack-1x,
+.fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 173, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stack-1x {
+  line-height: inherit;
+}
+
+/* line 176, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stack-2x {
+  font-size: 2em;
+}
+
+/* line 179, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-inverse {
+  color: #ffffff;
+}
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+/* line 184, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-glass:before {
+  content: "\f000";
+}
+
+/* line 187, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-music:before {
+  content: "\f001";
+}
+
+/* line 190, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-search:before {
+  content: "\f002";
+}
+
+/* line 193, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-envelope-o:before {
+  content: "\f003";
+}
+
+/* line 196, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-heart:before {
+  content: "\f004";
+}
+
+/* line 199, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-star:before {
+  content: "\f005";
+}
+
+/* line 202, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-star-o:before {
+  content: "\f006";
+}
+
+/* line 205, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-user:before {
+  content: "\f007";
+}
+
+/* line 208, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-film:before {
+  content: "\f008";
+}
+
+/* line 211, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-th-large:before {
+  content: "\f009";
+}
+
+/* line 214, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-th:before {
+  content: "\f00a";
+}
+
+/* line 217, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-th-list:before {
+  content: "\f00b";
+}
+
+/* line 220, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-check:before {
+  content: "\f00c";
+}
+
+/* line 223, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-times:before {
+  content: "\f00d";
+}
+
+/* line 226, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-search-plus:before {
+  content: "\f00e";
+}
+
+/* line 229, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-search-minus:before {
+  content: "\f010";
+}
+
+/* line 232, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-power-off:before {
+  content: "\f011";
+}
+
+/* line 235, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-signal:before {
+  content: "\f012";
+}
+
+/* line 238, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-gear:before,
+.fa-cog:before {
+  content: "\f013";
+}
+
+/* line 242, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-trash-o:before {
+  content: "\f014";
+}
+
+/* line 245, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-home:before {
+  content: "\f015";
+}
+
+/* line 248, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-o:before {
+  content: "\f016";
+}
+
+/* line 251, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-clock-o:before {
+  content: "\f017";
+}
+
+/* line 254, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-road:before {
+  content: "\f018";
+}
+
+/* line 257, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-download:before {
+  content: "\f019";
+}
+
+/* line 260, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-circle-o-down:before {
+  content: "\f01a";
+}
+
+/* line 263, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-circle-o-up:before {
+  content: "\f01b";
+}
+
+/* line 266, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-inbox:before {
+  content: "\f01c";
+}
+
+/* line 269, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-play-circle-o:before {
+  content: "\f01d";
+}
+
+/* line 272, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-rotate-right:before,
+.fa-repeat:before {
+  content: "\f01e";
+}
+
+/* line 276, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-refresh:before {
+  content: "\f021";
+}
+
+/* line 279, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-list-alt:before {
+  content: "\f022";
+}
+
+/* line 282, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-lock:before {
+  content: "\f023";
+}
+
+/* line 285, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-flag:before {
+  content: "\f024";
+}
+
+/* line 288, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-headphones:before {
+  content: "\f025";
+}
+
+/* line 291, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-volume-off:before {
+  content: "\f026";
+}
+
+/* line 294, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-volume-down:before {
+  content: "\f027";
+}
+
+/* line 297, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-volume-up:before {
+  content: "\f028";
+}
+
+/* line 300, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-qrcode:before {
+  content: "\f029";
+}
+
+/* line 303, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-barcode:before {
+  content: "\f02a";
+}
+
+/* line 306, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-tag:before {
+  content: "\f02b";
+}
+
+/* line 309, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-tags:before {
+  content: "\f02c";
+}
+
+/* line 312, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-book:before {
+  content: "\f02d";
+}
+
+/* line 315, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bookmark:before {
+  content: "\f02e";
+}
+
+/* line 318, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-print:before {
+  content: "\f02f";
+}
+
+/* line 321, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-camera:before {
+  content: "\f030";
+}
+
+/* line 324, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-font:before {
+  content: "\f031";
+}
+
+/* line 327, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bold:before {
+  content: "\f032";
+}
+
+/* line 330, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-italic:before {
+  content: "\f033";
+}
+
+/* line 333, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-text-height:before {
+  content: "\f034";
+}
+
+/* line 336, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-text-width:before {
+  content: "\f035";
+}
+
+/* line 339, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-align-left:before {
+  content: "\f036";
+}
+
+/* line 342, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-align-center:before {
+  content: "\f037";
+}
+
+/* line 345, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-align-right:before {
+  content: "\f038";
+}
+
+/* line 348, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-align-justify:before {
+  content: "\f039";
+}
+
+/* line 351, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-list:before {
+  content: "\f03a";
+}
+
+/* line 354, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-dedent:before,
+.fa-outdent:before {
+  content: "\f03b";
+}
+
+/* line 358, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-indent:before {
+  content: "\f03c";
+}
+
+/* line 361, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-video-camera:before {
+  content: "\f03d";
+}
+
+/* line 364, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-photo:before,
+.fa-image:before,
+.fa-picture-o:before {
+  content: "\f03e";
+}
+
+/* line 369, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-pencil:before {
+  content: "\f040";
+}
+
+/* line 372, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-map-marker:before {
+  content: "\f041";
+}
+
+/* line 375, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-adjust:before {
+  content: "\f042";
+}
+
+/* line 378, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-tint:before {
+  content: "\f043";
+}
+
+/* line 381, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-edit:before,
+.fa-pencil-square-o:before {
+  content: "\f044";
+}
+
+/* line 385, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-share-square-o:before {
+  content: "\f045";
+}
+
+/* line 388, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-check-square-o:before {
+  content: "\f046";
+}
+
+/* line 391, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrows:before {
+  content: "\f047";
+}
+
+/* line 394, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-step-backward:before {
+  content: "\f048";
+}
+
+/* line 397, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-fast-backward:before {
+  content: "\f049";
+}
+
+/* line 400, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-backward:before {
+  content: "\f04a";
+}
+
+/* line 403, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-play:before {
+  content: "\f04b";
+}
+
+/* line 406, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-pause:before {
+  content: "\f04c";
+}
+
+/* line 409, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stop:before {
+  content: "\f04d";
+}
+
+/* line 412, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-forward:before {
+  content: "\f04e";
+}
+
+/* line 415, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-fast-forward:before {
+  content: "\f050";
+}
+
+/* line 418, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-step-forward:before {
+  content: "\f051";
+}
+
+/* line 421, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-eject:before {
+  content: "\f052";
+}
+
+/* line 424, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-chevron-left:before {
+  content: "\f053";
+}
+
+/* line 427, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-chevron-right:before {
+  content: "\f054";
+}
+
+/* line 430, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-plus-circle:before {
+  content: "\f055";
+}
+
+/* line 433, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-minus-circle:before {
+  content: "\f056";
+}
+
+/* line 436, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-times-circle:before {
+  content: "\f057";
+}
+
+/* line 439, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-check-circle:before {
+  content: "\f058";
+}
+
+/* line 442, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-question-circle:before {
+  content: "\f059";
+}
+
+/* line 445, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-info-circle:before {
+  content: "\f05a";
+}
+
+/* line 448, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-crosshairs:before {
+  content: "\f05b";
+}
+
+/* line 451, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-times-circle-o:before {
+  content: "\f05c";
+}
+
+/* line 454, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-check-circle-o:before {
+  content: "\f05d";
+}
+
+/* line 457, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ban:before {
+  content: "\f05e";
+}
+
+/* line 460, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-left:before {
+  content: "\f060";
+}
+
+/* line 463, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-right:before {
+  content: "\f061";
+}
+
+/* line 466, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-up:before {
+  content: "\f062";
+}
+
+/* line 469, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-down:before {
+  content: "\f063";
+}
+
+/* line 472, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-mail-forward:before,
+.fa-share:before {
+  content: "\f064";
+}
+
+/* line 476, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-expand:before {
+  content: "\f065";
+}
+
+/* line 479, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-compress:before {
+  content: "\f066";
+}
+
+/* line 482, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-plus:before {
+  content: "\f067";
+}
+
+/* line 485, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-minus:before {
+  content: "\f068";
+}
+
+/* line 488, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-asterisk:before {
+  content: "\f069";
+}
+
+/* line 491, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-exclamation-circle:before {
+  content: "\f06a";
+}
+
+/* line 494, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-gift:before {
+  content: "\f06b";
+}
+
+/* line 497, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-leaf:before {
+  content: "\f06c";
+}
+
+/* line 500, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-fire:before {
+  content: "\f06d";
+}
+
+/* line 503, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-eye:before {
+  content: "\f06e";
+}
+
+/* line 506, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-eye-slash:before {
+  content: "\f070";
+}
+
+/* line 509, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-warning:before,
+.fa-exclamation-triangle:before {
+  content: "\f071";
+}
+
+/* line 513, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-plane:before {
+  content: "\f072";
+}
+
+/* line 516, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-calendar:before {
+  content: "\f073";
+}
+
+/* line 519, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-random:before {
+  content: "\f074";
+}
+
+/* line 522, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-comment:before {
+  content: "\f075";
+}
+
+/* line 525, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-magnet:before {
+  content: "\f076";
+}
+
+/* line 528, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-chevron-up:before {
+  content: "\f077";
+}
+
+/* line 531, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-chevron-down:before {
+  content: "\f078";
+}
+
+/* line 534, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-retweet:before {
+  content: "\f079";
+}
+
+/* line 537, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-shopping-cart:before {
+  content: "\f07a";
+}
+
+/* line 540, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-folder:before {
+  content: "\f07b";
+}
+
+/* line 543, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-folder-open:before {
+  content: "\f07c";
+}
+
+/* line 546, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrows-v:before {
+  content: "\f07d";
+}
+
+/* line 549, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrows-h:before {
+  content: "\f07e";
+}
+
+/* line 552, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bar-chart-o:before {
+  content: "\f080";
+}
+
+/* line 555, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-twitter-square:before {
+  content: "\f081";
+}
+
+/* line 558, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-facebook-square:before {
+  content: "\f082";
+}
+
+/* line 561, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-camera-retro:before {
+  content: "\f083";
+}
+
+/* line 564, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-key:before {
+  content: "\f084";
+}
+
+/* line 567, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-gears:before,
+.fa-cogs:before {
+  content: "\f085";
+}
+
+/* line 571, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-comments:before {
+  content: "\f086";
+}
+
+/* line 574, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-thumbs-o-up:before {
+  content: "\f087";
+}
+
+/* line 577, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-thumbs-o-down:before {
+  content: "\f088";
+}
+
+/* line 580, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-star-half:before {
+  content: "\f089";
+}
+
+/* line 583, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-heart-o:before {
+  content: "\f08a";
+}
+
+/* line 586, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sign-out:before {
+  content: "\f08b";
+}
+
+/* line 589, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-linkedin-square:before {
+  content: "\f08c";
+}
+
+/* line 592, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-thumb-tack:before {
+  content: "\f08d";
+}
+
+/* line 595, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-external-link:before {
+  content: "\f08e";
+}
+
+/* line 598, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sign-in:before {
+  content: "\f090";
+}
+
+/* line 601, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-trophy:before {
+  content: "\f091";
+}
+
+/* line 604, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-github-square:before {
+  content: "\f092";
+}
+
+/* line 607, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-upload:before {
+  content: "\f093";
+}
+
+/* line 610, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-lemon-o:before {
+  content: "\f094";
+}
+
+/* line 613, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-phone:before {
+  content: "\f095";
+}
+
+/* line 616, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-square-o:before {
+  content: "\f096";
+}
+
+/* line 619, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bookmark-o:before {
+  content: "\f097";
+}
+
+/* line 622, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-phone-square:before {
+  content: "\f098";
+}
+
+/* line 625, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-twitter:before {
+  content: "\f099";
+}
+
+/* line 628, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-facebook:before {
+  content: "\f09a";
+}
+
+/* line 631, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-github:before {
+  content: "\f09b";
+}
+
+/* line 634, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-unlock:before {
+  content: "\f09c";
+}
+
+/* line 637, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-credit-card:before {
+  content: "\f09d";
+}
+
+/* line 640, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-rss:before {
+  content: "\f09e";
+}
+
+/* line 643, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-hdd-o:before {
+  content: "\f0a0";
+}
+
+/* line 646, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bullhorn:before {
+  content: "\f0a1";
+}
+
+/* line 649, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bell:before {
+  content: "\f0f3";
+}
+
+/* line 652, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-certificate:before {
+  content: "\f0a3";
+}
+
+/* line 655, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-hand-o-right:before {
+  content: "\f0a4";
+}
+
+/* line 658, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-hand-o-left:before {
+  content: "\f0a5";
+}
+
+/* line 661, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-hand-o-up:before {
+  content: "\f0a6";
+}
+
+/* line 664, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-hand-o-down:before {
+  content: "\f0a7";
+}
+
+/* line 667, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-circle-left:before {
+  content: "\f0a8";
+}
+
+/* line 670, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-circle-right:before {
+  content: "\f0a9";
+}
+
+/* line 673, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-circle-up:before {
+  content: "\f0aa";
+}
+
+/* line 676, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-circle-down:before {
+  content: "\f0ab";
+}
+
+/* line 679, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-globe:before {
+  content: "\f0ac";
+}
+
+/* line 682, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-wrench:before {
+  content: "\f0ad";
+}
+
+/* line 685, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-tasks:before {
+  content: "\f0ae";
+}
+
+/* line 688, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-filter:before {
+  content: "\f0b0";
+}
+
+/* line 691, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-briefcase:before {
+  content: "\f0b1";
+}
+
+/* line 694, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrows-alt:before {
+  content: "\f0b2";
+}
+
+/* line 697, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-group:before,
+.fa-users:before {
+  content: "\f0c0";
+}
+
+/* line 701, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-chain:before,
+.fa-link:before {
+  content: "\f0c1";
+}
+
+/* line 705, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-cloud:before {
+  content: "\f0c2";
+}
+
+/* line 708, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-flask:before {
+  content: "\f0c3";
+}
+
+/* line 711, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-cut:before,
+.fa-scissors:before {
+  content: "\f0c4";
+}
+
+/* line 715, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-copy:before,
+.fa-files-o:before {
+  content: "\f0c5";
+}
+
+/* line 719, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-paperclip:before {
+  content: "\f0c6";
+}
+
+/* line 722, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-save:before,
+.fa-floppy-o:before {
+  content: "\f0c7";
+}
+
+/* line 726, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-square:before {
+  content: "\f0c8";
+}
+
+/* line 729, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-navicon:before,
+.fa-reorder:before,
+.fa-bars:before {
+  content: "\f0c9";
+}
+
+/* line 734, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-list-ul:before {
+  content: "\f0ca";
+}
+
+/* line 737, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-list-ol:before {
+  content: "\f0cb";
+}
+
+/* line 740, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-strikethrough:before {
+  content: "\f0cc";
+}
+
+/* line 743, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-underline:before {
+  content: "\f0cd";
+}
+
+/* line 746, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-table:before {
+  content: "\f0ce";
+}
+
+/* line 749, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-magic:before {
+  content: "\f0d0";
+}
+
+/* line 752, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-truck:before {
+  content: "\f0d1";
+}
+
+/* line 755, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-pinterest:before {
+  content: "\f0d2";
+}
+
+/* line 758, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-pinterest-square:before {
+  content: "\f0d3";
+}
+
+/* line 761, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-google-plus-square:before {
+  content: "\f0d4";
+}
+
+/* line 764, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-google-plus:before {
+  content: "\f0d5";
+}
+
+/* line 767, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-money:before {
+  content: "\f0d6";
+}
+
+/* line 770, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-caret-down:before {
+  content: "\f0d7";
+}
+
+/* line 773, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-caret-up:before {
+  content: "\f0d8";
+}
+
+/* line 776, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-caret-left:before {
+  content: "\f0d9";
+}
+
+/* line 779, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-caret-right:before {
+  content: "\f0da";
+}
+
+/* line 782, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-columns:before {
+  content: "\f0db";
+}
+
+/* line 785, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-unsorted:before,
+.fa-sort:before {
+  content: "\f0dc";
+}
+
+/* line 789, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sort-down:before,
+.fa-sort-desc:before {
+  content: "\f0dd";
+}
+
+/* line 793, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sort-up:before,
+.fa-sort-asc:before {
+  content: "\f0de";
+}
+
+/* line 797, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-envelope:before {
+  content: "\f0e0";
+}
+
+/* line 800, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-linkedin:before {
+  content: "\f0e1";
+}
+
+/* line 803, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-rotate-left:before,
+.fa-undo:before {
+  content: "\f0e2";
+}
+
+/* line 807, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-legal:before,
+.fa-gavel:before {
+  content: "\f0e3";
+}
+
+/* line 811, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-dashboard:before,
+.fa-tachometer:before {
+  content: "\f0e4";
+}
+
+/* line 815, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-comment-o:before {
+  content: "\f0e5";
+}
+
+/* line 818, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-comments-o:before {
+  content: "\f0e6";
+}
+
+/* line 821, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-flash:before,
+.fa-bolt:before {
+  content: "\f0e7";
+}
+
+/* line 825, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sitemap:before {
+  content: "\f0e8";
+}
+
+/* line 828, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-umbrella:before {
+  content: "\f0e9";
+}
+
+/* line 831, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-paste:before,
+.fa-clipboard:before {
+  content: "\f0ea";
+}
+
+/* line 835, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-lightbulb-o:before {
+  content: "\f0eb";
+}
+
+/* line 838, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-exchange:before {
+  content: "\f0ec";
+}
+
+/* line 841, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-cloud-download:before {
+  content: "\f0ed";
+}
+
+/* line 844, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-cloud-upload:before {
+  content: "\f0ee";
+}
+
+/* line 847, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-user-md:before {
+  content: "\f0f0";
+}
+
+/* line 850, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stethoscope:before {
+  content: "\f0f1";
+}
+
+/* line 853, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-suitcase:before {
+  content: "\f0f2";
+}
+
+/* line 856, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bell-o:before {
+  content: "\f0a2";
+}
+
+/* line 859, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-coffee:before {
+  content: "\f0f4";
+}
+
+/* line 862, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-cutlery:before {
+  content: "\f0f5";
+}
+
+/* line 865, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-text-o:before {
+  content: "\f0f6";
+}
+
+/* line 868, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-building-o:before {
+  content: "\f0f7";
+}
+
+/* line 871, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-hospital-o:before {
+  content: "\f0f8";
+}
+
+/* line 874, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ambulance:before {
+  content: "\f0f9";
+}
+
+/* line 877, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-medkit:before {
+  content: "\f0fa";
+}
+
+/* line 880, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-fighter-jet:before {
+  content: "\f0fb";
+}
+
+/* line 883, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-beer:before {
+  content: "\f0fc";
+}
+
+/* line 886, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-h-square:before {
+  content: "\f0fd";
+}
+
+/* line 889, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-plus-square:before {
+  content: "\f0fe";
+}
+
+/* line 892, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-angle-double-left:before {
+  content: "\f100";
+}
+
+/* line 895, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-angle-double-right:before {
+  content: "\f101";
+}
+
+/* line 898, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-angle-double-up:before {
+  content: "\f102";
+}
+
+/* line 901, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-angle-double-down:before {
+  content: "\f103";
+}
+
+/* line 904, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-angle-left:before {
+  content: "\f104";
+}
+
+/* line 907, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-angle-right:before {
+  content: "\f105";
+}
+
+/* line 910, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-angle-up:before {
+  content: "\f106";
+}
+
+/* line 913, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-angle-down:before {
+  content: "\f107";
+}
+
+/* line 916, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-desktop:before {
+  content: "\f108";
+}
+
+/* line 919, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-laptop:before {
+  content: "\f109";
+}
+
+/* line 922, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-tablet:before {
+  content: "\f10a";
+}
+
+/* line 925, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-mobile-phone:before,
+.fa-mobile:before {
+  content: "\f10b";
+}
+
+/* line 929, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-circle-o:before {
+  content: "\f10c";
+}
+
+/* line 932, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-quote-left:before {
+  content: "\f10d";
+}
+
+/* line 935, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-quote-right:before {
+  content: "\f10e";
+}
+
+/* line 938, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-spinner:before {
+  content: "\f110";
+}
+
+/* line 941, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-circle:before {
+  content: "\f111";
+}
+
+/* line 944, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-mail-reply:before,
+.fa-reply:before {
+  content: "\f112";
+}
+
+/* line 948, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-github-alt:before {
+  content: "\f113";
+}
+
+/* line 951, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-folder-o:before {
+  content: "\f114";
+}
+
+/* line 954, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-folder-open-o:before {
+  content: "\f115";
+}
+
+/* line 957, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-smile-o:before {
+  content: "\f118";
+}
+
+/* line 960, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-frown-o:before {
+  content: "\f119";
+}
+
+/* line 963, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-meh-o:before {
+  content: "\f11a";
+}
+
+/* line 966, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-gamepad:before {
+  content: "\f11b";
+}
+
+/* line 969, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-keyboard-o:before {
+  content: "\f11c";
+}
+
+/* line 972, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-flag-o:before {
+  content: "\f11d";
+}
+
+/* line 975, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-flag-checkered:before {
+  content: "\f11e";
+}
+
+/* line 978, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-terminal:before {
+  content: "\f120";
+}
+
+/* line 981, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-code:before {
+  content: "\f121";
+}
+
+/* line 984, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-mail-reply-all:before,
+.fa-reply-all:before {
+  content: "\f122";
+}
+
+/* line 988, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-star-half-empty:before,
+.fa-star-half-full:before,
+.fa-star-half-o:before {
+  content: "\f123";
+}
+
+/* line 993, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-location-arrow:before {
+  content: "\f124";
+}
+
+/* line 996, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-crop:before {
+  content: "\f125";
+}
+
+/* line 999, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-code-fork:before {
+  content: "\f126";
+}
+
+/* line 1002, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-unlink:before,
+.fa-chain-broken:before {
+  content: "\f127";
+}
+
+/* line 1006, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-question:before {
+  content: "\f128";
+}
+
+/* line 1009, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-info:before {
+  content: "\f129";
+}
+
+/* line 1012, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-exclamation:before {
+  content: "\f12a";
+}
+
+/* line 1015, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-superscript:before {
+  content: "\f12b";
+}
+
+/* line 1018, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-subscript:before {
+  content: "\f12c";
+}
+
+/* line 1021, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-eraser:before {
+  content: "\f12d";
+}
+
+/* line 1024, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-puzzle-piece:before {
+  content: "\f12e";
+}
+
+/* line 1027, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-microphone:before {
+  content: "\f130";
+}
+
+/* line 1030, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-microphone-slash:before {
+  content: "\f131";
+}
+
+/* line 1033, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-shield:before {
+  content: "\f132";
+}
+
+/* line 1036, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-calendar-o:before {
+  content: "\f133";
+}
+
+/* line 1039, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-fire-extinguisher:before {
+  content: "\f134";
+}
+
+/* line 1042, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-rocket:before {
+  content: "\f135";
+}
+
+/* line 1045, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-maxcdn:before {
+  content: "\f136";
+}
+
+/* line 1048, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-chevron-circle-left:before {
+  content: "\f137";
+}
+
+/* line 1051, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-chevron-circle-right:before {
+  content: "\f138";
+}
+
+/* line 1054, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-chevron-circle-up:before {
+  content: "\f139";
+}
+
+/* line 1057, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-chevron-circle-down:before {
+  content: "\f13a";
+}
+
+/* line 1060, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-html5:before {
+  content: "\f13b";
+}
+
+/* line 1063, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-css3:before {
+  content: "\f13c";
+}
+
+/* line 1066, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-anchor:before {
+  content: "\f13d";
+}
+
+/* line 1069, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-unlock-alt:before {
+  content: "\f13e";
+}
+
+/* line 1072, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bullseye:before {
+  content: "\f140";
+}
+
+/* line 1075, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ellipsis-h:before {
+  content: "\f141";
+}
+
+/* line 1078, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ellipsis-v:before {
+  content: "\f142";
+}
+
+/* line 1081, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-rss-square:before {
+  content: "\f143";
+}
+
+/* line 1084, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-play-circle:before {
+  content: "\f144";
+}
+
+/* line 1087, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ticket:before {
+  content: "\f145";
+}
+
+/* line 1090, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-minus-square:before {
+  content: "\f146";
+}
+
+/* line 1093, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-minus-square-o:before {
+  content: "\f147";
+}
+
+/* line 1096, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-level-up:before {
+  content: "\f148";
+}
+
+/* line 1099, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-level-down:before {
+  content: "\f149";
+}
+
+/* line 1102, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-check-square:before {
+  content: "\f14a";
+}
+
+/* line 1105, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-pencil-square:before {
+  content: "\f14b";
+}
+
+/* line 1108, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-external-link-square:before {
+  content: "\f14c";
+}
+
+/* line 1111, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-share-square:before {
+  content: "\f14d";
+}
+
+/* line 1114, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-compass:before {
+  content: "\f14e";
+}
+
+/* line 1117, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-toggle-down:before,
+.fa-caret-square-o-down:before {
+  content: "\f150";
+}
+
+/* line 1121, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-toggle-up:before,
+.fa-caret-square-o-up:before {
+  content: "\f151";
+}
+
+/* line 1125, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-toggle-right:before,
+.fa-caret-square-o-right:before {
+  content: "\f152";
+}
+
+/* line 1129, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-euro:before,
+.fa-eur:before {
+  content: "\f153";
+}
+
+/* line 1133, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-gbp:before {
+  content: "\f154";
+}
+
+/* line 1136, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-dollar:before,
+.fa-usd:before {
+  content: "\f155";
+}
+
+/* line 1140, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-rupee:before,
+.fa-inr:before {
+  content: "\f156";
+}
+
+/* line 1144, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-cny:before,
+.fa-rmb:before,
+.fa-yen:before,
+.fa-jpy:before {
+  content: "\f157";
+}
+
+/* line 1150, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ruble:before,
+.fa-rouble:before,
+.fa-rub:before {
+  content: "\f158";
+}
+
+/* line 1155, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-won:before,
+.fa-krw:before {
+  content: "\f159";
+}
+
+/* line 1159, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bitcoin:before,
+.fa-btc:before {
+  content: "\f15a";
+}
+
+/* line 1163, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file:before {
+  content: "\f15b";
+}
+
+/* line 1166, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-text:before {
+  content: "\f15c";
+}
+
+/* line 1169, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sort-alpha-asc:before {
+  content: "\f15d";
+}
+
+/* line 1172, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sort-alpha-desc:before {
+  content: "\f15e";
+}
+
+/* line 1175, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sort-amount-asc:before {
+  content: "\f160";
+}
+
+/* line 1178, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sort-amount-desc:before {
+  content: "\f161";
+}
+
+/* line 1181, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sort-numeric-asc:before {
+  content: "\f162";
+}
+
+/* line 1184, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sort-numeric-desc:before {
+  content: "\f163";
+}
+
+/* line 1187, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-thumbs-up:before {
+  content: "\f164";
+}
+
+/* line 1190, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-thumbs-down:before {
+  content: "\f165";
+}
+
+/* line 1193, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-youtube-square:before {
+  content: "\f166";
+}
+
+/* line 1196, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-youtube:before {
+  content: "\f167";
+}
+
+/* line 1199, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-xing:before {
+  content: "\f168";
+}
+
+/* line 1202, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-xing-square:before {
+  content: "\f169";
+}
+
+/* line 1205, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-youtube-play:before {
+  content: "\f16a";
+}
+
+/* line 1208, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-dropbox:before {
+  content: "\f16b";
+}
+
+/* line 1211, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stack-overflow:before {
+  content: "\f16c";
+}
+
+/* line 1214, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-instagram:before {
+  content: "\f16d";
+}
+
+/* line 1217, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-flickr:before {
+  content: "\f16e";
+}
+
+/* line 1220, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-adn:before {
+  content: "\f170";
+}
+
+/* line 1223, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bitbucket:before {
+  content: "\f171";
+}
+
+/* line 1226, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bitbucket-square:before {
+  content: "\f172";
+}
+
+/* line 1229, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-tumblr:before {
+  content: "\f173";
+}
+
+/* line 1232, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-tumblr-square:before {
+  content: "\f174";
+}
+
+/* line 1235, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-long-arrow-down:before {
+  content: "\f175";
+}
+
+/* line 1238, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-long-arrow-up:before {
+  content: "\f176";
+}
+
+/* line 1241, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-long-arrow-left:before {
+  content: "\f177";
+}
+
+/* line 1244, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-long-arrow-right:before {
+  content: "\f178";
+}
+
+/* line 1247, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-apple:before {
+  content: "\f179";
+}
+
+/* line 1250, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-windows:before {
+  content: "\f17a";
+}
+
+/* line 1253, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-android:before {
+  content: "\f17b";
+}
+
+/* line 1256, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-linux:before {
+  content: "\f17c";
+}
+
+/* line 1259, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-dribbble:before {
+  content: "\f17d";
+}
+
+/* line 1262, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-skype:before {
+  content: "\f17e";
+}
+
+/* line 1265, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-foursquare:before {
+  content: "\f180";
+}
+
+/* line 1268, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-trello:before {
+  content: "\f181";
+}
+
+/* line 1271, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-female:before {
+  content: "\f182";
+}
+
+/* line 1274, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-male:before {
+  content: "\f183";
+}
+
+/* line 1277, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-gittip:before {
+  content: "\f184";
+}
+
+/* line 1280, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sun-o:before {
+  content: "\f185";
+}
+
+/* line 1283, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-moon-o:before {
+  content: "\f186";
+}
+
+/* line 1286, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-archive:before {
+  content: "\f187";
+}
+
+/* line 1289, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bug:before {
+  content: "\f188";
+}
+
+/* line 1292, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-vk:before {
+  content: "\f189";
+}
+
+/* line 1295, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-weibo:before {
+  content: "\f18a";
+}
+
+/* line 1298, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-renren:before {
+  content: "\f18b";
+}
+
+/* line 1301, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-pagelines:before {
+  content: "\f18c";
+}
+
+/* line 1304, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stack-exchange:before {
+  content: "\f18d";
+}
+
+/* line 1307, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-circle-o-right:before {
+  content: "\f18e";
+}
+
+/* line 1310, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-arrow-circle-o-left:before {
+  content: "\f190";
+}
+
+/* line 1313, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-toggle-left:before,
+.fa-caret-square-o-left:before {
+  content: "\f191";
+}
+
+/* line 1317, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-dot-circle-o:before {
+  content: "\f192";
+}
+
+/* line 1320, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-wheelchair:before {
+  content: "\f193";
+}
+
+/* line 1323, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-vimeo-square:before {
+  content: "\f194";
+}
+
+/* line 1326, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-turkish-lira:before,
+.fa-try:before {
+  content: "\f195";
+}
+
+/* line 1330, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-plus-square-o:before {
+  content: "\f196";
+}
+
+/* line 1333, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-space-shuttle:before {
+  content: "\f197";
+}
+
+/* line 1336, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-slack:before {
+  content: "\f198";
+}
+
+/* line 1339, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-envelope-square:before {
+  content: "\f199";
+}
+
+/* line 1342, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-wordpress:before {
+  content: "\f19a";
+}
+
+/* line 1345, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-openid:before {
+  content: "\f19b";
+}
+
+/* line 1348, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-institution:before,
+.fa-bank:before,
+.fa-university:before {
+  content: "\f19c";
+}
+
+/* line 1353, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-mortar-board:before,
+.fa-graduation-cap:before {
+  content: "\f19d";
+}
+
+/* line 1357, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-yahoo:before {
+  content: "\f19e";
+}
+
+/* line 1360, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-google:before {
+  content: "\f1a0";
+}
+
+/* line 1363, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-reddit:before {
+  content: "\f1a1";
+}
+
+/* line 1366, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-reddit-square:before {
+  content: "\f1a2";
+}
+
+/* line 1369, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stumbleupon-circle:before {
+  content: "\f1a3";
+}
+
+/* line 1372, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-stumbleupon:before {
+  content: "\f1a4";
+}
+
+/* line 1375, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-delicious:before {
+  content: "\f1a5";
+}
+
+/* line 1378, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-digg:before {
+  content: "\f1a6";
+}
+
+/* line 1381, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-pied-piper-square:before,
+.fa-pied-piper:before {
+  content: "\f1a7";
+}
+
+/* line 1385, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-pied-piper-alt:before {
+  content: "\f1a8";
+}
+
+/* line 1388, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-drupal:before {
+  content: "\f1a9";
+}
+
+/* line 1391, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-joomla:before {
+  content: "\f1aa";
+}
+
+/* line 1394, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-language:before {
+  content: "\f1ab";
+}
+
+/* line 1397, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-fax:before {
+  content: "\f1ac";
+}
+
+/* line 1400, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-building:before {
+  content: "\f1ad";
+}
+
+/* line 1403, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-child:before {
+  content: "\f1ae";
+}
+
+/* line 1406, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-paw:before {
+  content: "\f1b0";
+}
+
+/* line 1409, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-spoon:before {
+  content: "\f1b1";
+}
+
+/* line 1412, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-cube:before {
+  content: "\f1b2";
+}
+
+/* line 1415, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-cubes:before {
+  content: "\f1b3";
+}
+
+/* line 1418, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-behance:before {
+  content: "\f1b4";
+}
+
+/* line 1421, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-behance-square:before {
+  content: "\f1b5";
+}
+
+/* line 1424, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-steam:before {
+  content: "\f1b6";
+}
+
+/* line 1427, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-steam-square:before {
+  content: "\f1b7";
+}
+
+/* line 1430, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-recycle:before {
+  content: "\f1b8";
+}
+
+/* line 1433, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-automobile:before,
+.fa-car:before {
+  content: "\f1b9";
+}
+
+/* line 1437, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-cab:before,
+.fa-taxi:before {
+  content: "\f1ba";
+}
+
+/* line 1441, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-tree:before {
+  content: "\f1bb";
+}
+
+/* line 1444, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-spotify:before {
+  content: "\f1bc";
+}
+
+/* line 1447, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-deviantart:before {
+  content: "\f1bd";
+}
+
+/* line 1450, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-soundcloud:before {
+  content: "\f1be";
+}
+
+/* line 1453, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-database:before {
+  content: "\f1c0";
+}
+
+/* line 1456, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-pdf-o:before {
+  content: "\f1c1";
+}
+
+/* line 1459, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-word-o:before {
+  content: "\f1c2";
+}
+
+/* line 1462, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-excel-o:before {
+  content: "\f1c3";
+}
+
+/* line 1465, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-powerpoint-o:before {
+  content: "\f1c4";
+}
+
+/* line 1468, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-photo-o:before,
+.fa-file-picture-o:before,
+.fa-file-image-o:before {
+  content: "\f1c5";
+}
+
+/* line 1473, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-zip-o:before,
+.fa-file-archive-o:before {
+  content: "\f1c6";
+}
+
+/* line 1477, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-sound-o:before,
+.fa-file-audio-o:before {
+  content: "\f1c7";
+}
+
+/* line 1481, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-movie-o:before,
+.fa-file-video-o:before {
+  content: "\f1c8";
+}
+
+/* line 1485, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-file-code-o:before {
+  content: "\f1c9";
+}
+
+/* line 1488, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-vine:before {
+  content: "\f1ca";
+}
+
+/* line 1491, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-codepen:before {
+  content: "\f1cb";
+}
+
+/* line 1494, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-jsfiddle:before {
+  content: "\f1cc";
+}
+
+/* line 1497, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-life-bouy:before,
+.fa-life-saver:before,
+.fa-support:before,
+.fa-life-ring:before {
+  content: "\f1cd";
+}
+
+/* line 1503, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-circle-o-notch:before {
+  content: "\f1ce";
+}
+
+/* line 1506, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ra:before,
+.fa-rebel:before {
+  content: "\f1d0";
+}
+
+/* line 1510, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-ge:before,
+.fa-empire:before {
+  content: "\f1d1";
+}
+
+/* line 1514, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-git-square:before {
+  content: "\f1d2";
+}
+
+/* line 1517, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-git:before {
+  content: "\f1d3";
+}
+
+/* line 1520, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-hacker-news:before {
+  content: "\f1d4";
+}
+
+/* line 1523, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-tencent-weibo:before {
+  content: "\f1d5";
+}
+
+/* line 1526, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-qq:before {
+  content: "\f1d6";
+}
+
+/* line 1529, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-wechat:before,
+.fa-weixin:before {
+  content: "\f1d7";
+}
+
+/* line 1533, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-send:before,
+.fa-paper-plane:before {
+  content: "\f1d8";
+}
+
+/* line 1537, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-send-o:before,
+.fa-paper-plane-o:before {
+  content: "\f1d9";
+}
+
+/* line 1541, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-history:before {
+  content: "\f1da";
+}
+
+/* line 1544, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-circle-thin:before {
+  content: "\f1db";
+}
+
+/* line 1547, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-header:before {
+  content: "\f1dc";
+}
+
+/* line 1550, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-paragraph:before {
+  content: "\f1dd";
+}
+
+/* line 1553, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-sliders:before {
+  content: "\f1de";
+}
+
+/* line 1556, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-share-alt:before {
+  content: "\f1e0";
+}
+
+/* line 1559, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-share-alt-square:before {
+  content: "\f1e1";
+}
+
+/* line 1562, /Users/andela2014/Personal/vbox/ruby/rails/flightmanager/app/assets/stylesheets/font-awesome.css */
+.fa-bomb:before {
+  content: "\f1e2";
+}

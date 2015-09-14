@@ -1,16 +1,12 @@
 class FlightsController < ApplicationController
-  before_action :set_flight, only: [:show, :edit, :update, :destroy]
+  before_action :set_flight, only: [:show]
 
   def index
     @airports = Airport.all
     if search_params
       return if empty_search_params?
       return if origin_is_same_as_destination?
-      @flights = Flight.search(origin: search_params[:origin] , destination: search_params[:destination], departure_date: search_params[:departure_date].to_s)
-      @origin = Airport.find(search_params[:origin])
-      @destination = Airport.find(search_params[:destination])
-      @required_passengers = search_params[:no_of_passengers]
-      flash[:message] = "There are no flights from #{@origin.location} to #{@destination.location}" if @flights.blank?
+      search_helper(search_params)
     else
       @flights = Flight.fetch_all
     end
@@ -21,6 +17,14 @@ class FlightsController < ApplicationController
   end
 
   private
+    def search_helper(search_params)
+      @flights = Flight.search(origin: search_params[:origin] , destination: search_params[:destination], departure_date: search_params[:departure_date].to_s)
+      @origin = Airport.find(search_params[:origin])
+      @destination = Airport.find(search_params[:destination])
+      @required_passengers = search_params[:no_of_passengers]
+      flash[:message] = "There are no flights from #{@origin.location} to #{@destination.location}" if @flights.blank?
+    end
+
     def set_flight
       @flight = Flight.find(params[:id])
     end
