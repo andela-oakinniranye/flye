@@ -6,7 +6,6 @@ class BookingsController < ApplicationController
   protect_from_forgery except: [:hook]
 
   def index
-    # @bookings = Booking.all
     @booking = current_user.bookings.includes(:flight)
   end
 
@@ -23,16 +22,15 @@ class BookingsController < ApplicationController
     build_params.times{ @booking.passengers.build }
   end
 
-
   def edit
   end
 
   def hook
-    params.permit!
+    params.permit! # Permit all Paypal
     status = params[:payment_status]
     if status == "Completed"
-      response = validate_IPN_notification(request.raw_post)
-      examine_booking(response)
+       response = validate_IPN_notification(request.raw_post)
+       examine_booking(response)
     end
     render nothing: true
   end
@@ -85,14 +83,14 @@ class BookingsController < ApplicationController
   private
 
     def examine_booking(response)
-      require 'pry' ; binding.pry
       case response
       when "VERIFIED"
-        booking = Booking.find_by_uniq_id(params[:invoice])
-        booking_accepted(booking)
+        @booking = Booking.find_by_uniq_id(params[:invoice])
+        booking_accepted(@booking)
       when "INVALID"
-      else
 
+      else
+        # trigger error mailer for investigation
       end
     end
 
@@ -112,7 +110,7 @@ class BookingsController < ApplicationController
     end
 
     def validate_IPN_notification(raw)
-      uri = URI.parse(Booking.notify_url)
+      uri = URI.parse(Booking.validate_url)
       http = Net::HTTP.new(uri.host, uri.port)
       http.open_timeout = 60
       http.read_timeout = 60
@@ -122,7 +120,6 @@ class BookingsController < ApplicationController
                            'Content-Length' => "#{raw.size}",
                            'User-Agent' => "Highness"
                          ).body
-      response
     end
 
     def check_that_user_owns_this_booking
