@@ -88,6 +88,10 @@ class BookingsController < ApplicationController
       case response
       when "VERIFIED"
         @booking = Booking.find_by_uniq_id(params[:invoice])
+        puts "==================>>>>>>>>>Booking id was=======>>>>"
+        puts params[:invoice]
+        puts "==================>>>>>>>>>Booking was=======>>>>"
+        puts @booking
         booking_accepted(@booking)
       when "INVALID"
 
@@ -97,6 +101,8 @@ class BookingsController < ApplicationController
     end
 
     def booking_accepted(booking)
+      puts "==================>>>>>>>>>Again Booking was=======>>>>"
+      puts booking
       booking.paid!
       booking.update(txn_id: params[:txn_id])
       BookingMailer.send_booking_mail(booking).deliver_now
