@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, except: [:show, :index]
 
   get '/profile' => 'users#show', as: :profile
-  post '/bookings/:id' => 'bookings#show'
+  post '/view' => 'bookings#view_booking', as: :view_booking
   post '/hook' => 'bookings#hook', as: :hook
 
   get 'auth/:provider/callback', to: 'users#login', as: :login
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/book', to: 'bookings#book', as: :book
 
 
-  resources :flights, only: [:show, :index] do
+  resources :flights, only: [:index] do
     resources :bookings, only: [:new]
   end
   root 'welcome#index'
