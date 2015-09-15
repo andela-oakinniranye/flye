@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="gap"></div>
+  <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="text-center">
+          <%= render partial: 'layouts/flash' if flash[:notice] %>
+          <%= render partial: 'bookings/success' if @booking.paid? %>
+          <h5 class="text-center mb30">One of our promises is to go wherever life takes you,<br><%= @booking.flight.destination.location %> is just one of them</h5>
+        </div>
+          <ul class="order-payment-list list mb30 col-md-7">
+            <h5 class="text-center"><i class="fa fa-plane"></i> Flight from <%= "#{@origin.location} to #{@destination.location} on #{ @booking.flight.departure_date.strftime("%A, %b %-d %Y")}" %></h5>
+            <p>Your booking confirmation number is <span><%= @booking.uniq_id %></span></p>
+            <% @booking.passengers.each do |passenger| %>
+              <li>
+                  <div class="row">
+                      <div class="col-xs-9">
+                          <p><%= "#{ passenger.first_name } #{ passenger.last_name }" %>
+                          </p>
+                      </div>
+                      <div class="col-xs-3">
+                          <p class="text-right"><span class="text-lg"><%= number_to_currency @booking.flight.price, delimiter: '.' %></span>
+                          </p>
+                      </div>
+                  </div>
+              </li>
+              <% end %>
+              <div class="text-center">
+              <%= render partial: 'bookings/paypal_button' if @booking.unpaid?%>
+            </div>
+          </ul>
+          <ul class="col-md-5">
+            <%= render('flights/flight_details', flight: @booking.flight) %>
+          </ul>
+      </div>
+  </div>
+  <div class="gap"></div>
+</div>

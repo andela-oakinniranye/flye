@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <aside class="user-profile-sidebar">
+                <div class="user-profile-avatar text-center">
+                  <%= image_tag current_user.profile_url, class: 'origin round', title: current_user.name %>
+                    <%= content_tag :h5, current_user.name %>
+                    <%= content_tag :p, "Member Since #{current_user.created_at.strftime("%B %Y")}"%>
+                </div>
+                <ul class="list user-profile-nav">
+                  <%= content_tag :li do %>
+                    <%= link_to "Past Bookings", profile_path, class: "active" %>
+                  <% end %>
+                  </li>
+                </ul>
+            </aside>
+        </div>
+        <div class="col-md-9">
+          <div class="gap gap-small"></div>
+            <%= render 'layouts/flash' if flash[:notice]%>
+            <%= render "users/flights", flights: @flights, bookings: @bookings unless @bookings.blank? %>
+            <%= render "users/no_record" if @bookings.blank? %>
+        </div>
+    </div>
+</div>

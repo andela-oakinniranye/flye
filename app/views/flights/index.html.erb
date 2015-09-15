@@ -1,0 +1,11 @@
+<% flight_count = @flights.size %>
+
+<div class="col-md-8 col-md-offset-2">
+  <div class="gap"></div>
+  <%= render 'layouts/search3', airports: @airports %>
+  <div class="search_flight_results">
+    <%= search_result_info(@origin, @destination, flight_count) if params[:flight] && flight_count > 0 %>
+    <%= render 'flights/flight_list', flights: @flights, no_of_passengers: @required_passengers %>
+  </div>
+</div>
+<div class="gap"></div>

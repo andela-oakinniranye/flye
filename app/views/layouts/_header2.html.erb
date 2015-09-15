@@ -1,0 +1,22 @@
+<header id="main-header">
+  <div class="header-top">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3 pull-left">
+                <%= link_to root_path, class: 'header-logo logo' do %>
+                  <%= image_tag 'flye.png'%>
+                <% end %>
+              </div>
+              <div class="col-md-3 col-md-offset-2">
+
+              </div>
+              <div class="col-md-4 pull-right">
+                  <div class="top-user-area clearfix">
+                      <%= login_signout_profile_helper %>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+<%= render 'layouts/login_modal' unless current_user %>

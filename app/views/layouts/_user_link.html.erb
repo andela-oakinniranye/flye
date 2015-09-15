@@ -1,0 +1,9 @@
+<%= content_tag :li, class: 'top-user-area-avatar' do %>
+  <%= link_to profile_path do %>
+    <%= image_tag current_user.profile_url, class: 'origin round', title: current_user.name %>
+    <%= "Hi, #{current_user.first_name}" %>
+  <% end %>
+<% end %>
+<%= content_tag :li do %>
+  <%= link_to 'Sign Out', logout_path %>
+<% end %>

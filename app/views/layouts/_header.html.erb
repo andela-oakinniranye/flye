@@ -1,0 +1,33 @@
+<header id="main-header">
+    <div class="header-top hide">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <%= link_to root_path, class: 'logo' do %>
+                      <%= image_tag 'logo.png'%>
+                    <% end %>
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                </div>
+                <div class="col-md-4">
+                    <div class="top-user-area clearfix">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+      <div class="nav">
+        <ul class="slimmenu">
+          <li style="background-color: orange;"><%= link_to root_path, class: 'logo' do %>
+            <%= image_tag 'logo-invert.png'%>
+          <% end %></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Messages</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+      </div>
+    </div>
+</header>
+<%= render 'layouts/login_modal' unless current_user %>
+<%= render 'layouts/flights_modal' %>

@@ -1,0 +1,57 @@
+<div class="search-tabs search-tabs-bg search-tabs-abs mt50">
+  <div class="tabbable">
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active">
+        <a data-toggle="tab" href="index-3.html#tab-2">
+          <i class="fa fa-plane"></i>
+          <span >Flights</span>
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="tab-2">
+        <h5>Search for Cheap Flights</h5>
+        <%= form_tag flights_path, method: :get, remote: true do %>
+          <div class="tabbable">
+            <div class="tab-content">
+              <div class="tab-pane fade in active" id="flight-search-1">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group form-group-lg">
+                      <label>From</label>
+                      <%= collection_select :flight, :origin, airports, :id, :name, {include_blank: 'Where are you coming from?'}, {class: 'typeahead form-control airport_select'}%>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group form-group-lg">
+                      <label>To</label>
+                      <%= collection_select :flight, :destination, airports, :id, :name, {include_blank: 'Where are you going to?'}, {class: 'typeahead form-control airport_select'}%>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-daterange" data-date-format="M d, D">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                      <div class="form-group form-group-lg">
+                        <%= text_field_tag "flight[departure_date]", nil, id: 'flight_departure_date', placeholder: "Departure Date", class: 'form-control'%>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                      <div class="form-group form-group-lg">
+                        <%= text_field_tag "flight[no_of_passengers]", nil, id: 'flight_departure_time', class: 'time-pick form-control', placeholder: 'Number of Passengers'%>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-md-offset-0 col-sm-offset-0 col-xs-6 col-xs-offset-3">
+                      <%= button_tag "Search for Flights", class: 'btn btn-primary btn-lg', id: "flight_search_btn", data: {toggle: 'modal', target: '#flights_modal' } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gap"></div>

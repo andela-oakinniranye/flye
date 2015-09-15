@@ -1,0 +1,11 @@
+<%= form_tag flights_path, method: :get, class: "navbar-form search-form", remote: true do %>
+  <div class="search-tabs search-tabs-bg search-tabs-bottom mb50">
+      <div class="tabbable col-md-8 col-md-offset-2">
+          <ul class="nav nav-tabs" id="myTab">
+              <li class="active"><a href="#" data-toggle="tab"><i class="fa fa-plane"></i> <span >Flights</span></a>
+              </li>
+          </ul>
+          <%= render 'flights/flight_search', airports: airports%>
+      </div>
+  </div>
+<% end %>
