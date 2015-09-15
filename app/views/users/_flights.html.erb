@@ -6,7 +6,7 @@
             <th>Take-off Location</th>
             <th>Booking Date</th>
             <th>Flight Date</th>
-            <th>Cost</th>
+            <th>Cost | Paid?</th>
             <th>Flight Status</th>
             <th>Action</th>
         </tr>
@@ -21,18 +21,14 @@
             <td><%= flight.origin.location %></td>
             <td><%= booking.created_at.strftime("%a, %b %-d %Y") %></td>
             <td><%= flight.departure_date.strftime("%b %-d, %Y, %-l:%M%P") %></td>
-            <td><%= number_to_currency booking.amount, delimiter: '.'%></td>
+            <td><%= number_to_currency booking.amount, delimiter: '.'%> <%= checked_if_paid(booking) %></td>
             <%= flight_status_active_or_canceled(flight) %>
             </td>
             <td class="text-center">
-              <!-- <div class="btn btn-default">View</div> -->
               <%= link_to_cancel_flight_booking(booking)%>
               </a>
             </td>
         </tr>
-        <!-- <tr class="passengers hide">
-          <td>What</td>
-        </tr> -->
       <% end %>
     </tbody>
 </table>

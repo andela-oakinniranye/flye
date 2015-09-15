@@ -64,9 +64,11 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    origin = @booking.flight.origin
+    destination = @booking.flight.destination
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to profile_url, notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to profile_url, notice: "Your flight booking from #{origin.location} to #{destination.location} was successfully canceled." }
       format.json { head :no_content }
     end
   end

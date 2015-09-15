@@ -26,8 +26,27 @@ $(function(){
     }
   });
 
+  $('.search-form').submit(function(e){
+      if(_no_flight_selected()){
+        e.preventDefault();
+      }
+   });
+
+   $('.flight_select_button').click(function(e){
+      if(_no_flight_selected()){
+        e.preventDefault();
+      }
+   });
 });
 
+ function _no_flight_selected(){
+   var flight_is_checked = $('input[name=flight_id]').is(':checked');
+   if(!flight_is_checked){
+    toastr.warning('Sorry, you have to select a Flight');
+    return true
+   }
+   return false
+ }
 
 function same_location(origin, destination){
   if(origin == destination){
