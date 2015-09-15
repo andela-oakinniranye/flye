@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :bookings, except: [:new, :edit, :update]
-  resources :users, except: [:show, :index]
 
   get '/profile' => 'users#show', as: :profile
   post '/view' => 'bookings#view_booking', as: :view_booking
@@ -19,6 +18,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new]
   end
   root 'welcome#index'
+  
+  get '*unmatched_route', to: 'application#no_route_found'
 
   # get 'welcome/index'
 
