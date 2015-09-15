@@ -20,4 +20,8 @@ module UsersHelper
 
     end
   end
+
+  def checked_if_paid(booking)
+    content_tag(:i, nil, class: 'fa fa-check-circle text-success') if booking.paid?
+  end
 end
