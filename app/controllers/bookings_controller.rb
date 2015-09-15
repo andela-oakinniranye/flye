@@ -88,7 +88,8 @@ class BookingsController < ApplicationController
       case response
       when "VERIFIED"
         @booking = Booking.find_by_uniq_id(params[:invoice])
-        booking_accepted(@booking)
+        booking_accepted(@booking) if @booking
+        #create a logger for invalid bookings
       when "INVALID"
 
       else
