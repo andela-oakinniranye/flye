@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   protect_from_forgery except: [:hook]
 
   def index
-    @booking = current_user.bookings.includes(:flight)
+    @bookings = current_user.bookings.includes(:flight)
   end
 
   def show
@@ -82,7 +82,7 @@ class BookingsController < ApplicationController
       when "VERIFIED"
         @booking = Booking.find_by_uniq_id(params[:invoice])
         booking_accepted(@booking) if @booking
-        #create a logger for invalid bookings
+        #create a logger for invalid bookings that got here
       when "INVALID"
 
       else
