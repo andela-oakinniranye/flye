@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  # before_action :logged_in?, except:
+  # before_action :logged_in?, except: [:new, :create]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :check_that_user_owns_this_booking, only: [:destroy]
   before_action :can_still_cancel?, only: [:destroy]
@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @payment_url = @booking.paypal_url(booking_path(@booking))
+    @payment_url = @booking.paypal_url(view_booking_path)
     @origin = @booking.flight.origin
     @destination = @booking.flight.destination
   end
@@ -22,7 +22,12 @@ class BookingsController < ApplicationController
     build_params.times{ @booking.passengers.build }
   end
 
-  def edit
+  def view_booking
+    if params[:item_number]
+      redirect_to booking_path(params[:item_number])
+    else
+      redirect_to flights_path
+    end
   end
 
   def hook
@@ -46,18 +51,6 @@ class BookingsController < ApplicationController
       else
         flash[:danger] = @booking.errors.full_messages
         format.html { redirect_to new_flight_booking_path(flight) }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
-        format.json { render :show, status: :ok, location: @booking }
-      else
-        format.html { render :edit }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end

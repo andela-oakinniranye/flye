@@ -13,9 +13,6 @@ class FlightsController < ApplicationController
     respond_to :js, :html
   end
 
-  def show
-  end
-
   private
     def search_helper(search_params)
       @flights = Flight.search(origin: search_params[:origin] , destination: search_params[:destination], departure_date: search_params[:departure_date].to_s)
