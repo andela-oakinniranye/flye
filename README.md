@@ -3,11 +3,12 @@
 Or looking for a cheap flight to a cool relaxation spot?</b>
 Or just looking for the best Flight Search experience?</b>
 </p>
-Flye enables you to do this and so much more!
+<a href="http://flye.herokuapp.com">Flye</a> enables you to do this and so much more!
 
 Requirements
 This project requires that I implement a flight booking application which requires minimal efforts by the user, in order to search for flights given an origin and destination.
 More information about the project can be found <a href="/requirements.md">here</a>.
+<a href="http://flye.herokuapp.com">You can always Flye by visiting this link</a>
 
 Approach
 In this sort of application, the most important considerations will be on the database associations, in order to remove redundant tables and queries amongst other things.
