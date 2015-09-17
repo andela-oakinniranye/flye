@@ -38450,26 +38450,26 @@ $(function() {
 
 });
 
-// var tid = setInterval(tagline_vertical_slide, 2500);
+var tid = setInterval(tagline_vertical_slide, 2500);
 
 // vertical slide
-// function tagline_vertical_slide() {
-//     var curr = $("#tagline ul li.active");
-//     curr.removeClass("active").addClass("vs-out");
-//     setTimeout(function() {
-//         curr.removeClass("vs-out");
-//     }, 500);
-//
-//     var nextTag = curr.next('li');
-//     if (!nextTag.length) {
-//         nextTag = $("#tagline ul li").first();
-//     }
-//     nextTag.addClass("active");
-// }
-//
-// function abortTimer() { // to be called when you want to stop the timer
-//     clearInterval(tid);
-// }
+function tagline_vertical_slide() {
+    var curr = $("#tagline ul li.active");
+    curr.removeClass("active").addClass("vs-out");
+    setTimeout(function() {
+        curr.removeClass("vs-out");
+    }, 500);
+
+    var nextTag = curr.next('li');
+    if (!nextTag.length) {
+        nextTag = $("#tagline ul li").first();
+    }
+    nextTag.addClass("active");
+}
+
+function abortTimer() { // to be called when you want to stop the timer
+    clearInterval(tid);
+}
 ;
 // $(document).ready(function() {
 //   $('.datepicker').datetimepicker({
@@ -38484,6 +38484,7 @@ $(function(){
   if ($().datepicker) {
       $('#flight_departure_date').datepicker({
         // format: 'dd/mm/yyyy',
+        autoclose: true,
         startDate: '+1d'
       });
   }

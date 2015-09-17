@@ -16,7 +16,7 @@ class FlightsController < ApplicationController
   private
     def search_helper(search_params)
       @flights = Flight.search(search_params.except(:no_of_passengers).symbolize_keys)
-      flights_origin_and_destination = Airport.select(:location).where(id: [search_params[:origin],search_params[:destination]])
+      flights_origin_and_destination = Airport.get_names(search_params[:origin],search_params[:destination])
       @origin = flights_origin_and_destination.first
       @destination = flights_origin_and_destination.last
       @required_passengers = search_params[:no_of_passengers]
