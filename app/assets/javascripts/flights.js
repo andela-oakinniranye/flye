@@ -11,6 +11,7 @@ $(function(){
   if ($().datepicker) {
       $('#flight_departure_date').datepicker({
         // format: 'dd/mm/yyyy',
+        autoclose: true,
         startDate: '+1d'
       });
   }

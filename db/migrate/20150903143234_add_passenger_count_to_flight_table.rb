@@ -1,5 +1,5 @@
 class AddPassengerCountToFlightTable < ActiveRecord::Migration
   def change
-    add_column :flights, :passenger_count, :integer
+    add_column :flights, :passengers_count, :integer, default: 0
   end
 end

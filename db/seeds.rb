@@ -1,32 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Flight.destroy_all
 Airport.destroy_all
 
+airports_array = [
+  {name: 'Nnamdi Azikwe International Airport', location: 'Abuja', symbol: 'ABV'},
+  {name: 'Akanu Ibiam International Airport', location: 'Enugu', symbol: 'ENU'},
+  {name: 'Mallam Aminu Kano International Airport', location: 'Kano', symbol: 'KAN'},
+  {name: 'Murtala Muhammed International Airport', location: 'Lagos', symbol: 'LOS'},
+  {name: 'Port Harcourt International Airport', location: 'Rivers', symbol: 'PHC'},
+  {name: 'Sir Abubakar Tafawa Balewa Airport', location: 'Bauchi', symbol: 'ATB'},
+  {name: 'Margaret Ekpo International Airport', location: 'Cross River', symbol: 'CBQ'},
+  {name: 'Yakubu Gowon Airport', location: 'Plateau', symbol: 'JOS'},
+  {name: 'Kaduna Airport', location: 'Kaduna', symbol: 'KAD'},
+  {name: 'Maiduguri International Airport', location: 'Borno', symbol: 'MIU'},
+  {name: 'Sadiq Abubakar III International Airport', location: 'Sokoto', symbol: 'SKO'},
+  {name: 'Yola Airport', location: 'Adamawa', symbol: 'YOL'}
+]
 
-jfk = Airport.create(name: 'John F Kennedy Airport', location: 'New York', symbol: 'JFK')
-jfk = Airport.create(name: 'London Heathrow Airport', location: 'London', symbol: 'LHR')
+airlines_array = ['AeroContractors', 'Air Peace', 'Allied Air', 'Arik Air', 'Associated Aviation', 'Azman Air', 'Chanchangi Airlines', 'Dana Air', 'Discovery Air', 'Dornier Aviation Nigeria', 'First Nation Airways', 'IRS Airlines', 'Kabo Air', 'Max Air', 'Med-View Airline', 'Overland Airways', 'Overland Airways', 'TAT Nigeria']
 
+  airports_array.each{ |airport|
+    Airport.create(airport)
+  }
 
-10.times{
-    airport = Airport.new
-    airport.name = Faker::Company.name
-    airport.location = Faker::Address.city
-    airport.symbol = airport.name[0,3].upcase
-    airport.save!
-}
-
-100.times{
+500.times{
   forward_rand = Random.rand(0..30)
   departure_date = Faker::Time.forward(10, :morning)
   flight = Flight.new
-  flight.name = Faker::Company.name.match(/\w+/)
+  flight.name = airlines_array.sample
   flight.origin = Airport.order('RANDOM()').first
   flight.destination = Airport.order('RANDOM()').where.not(id: flight.origin.id).first
   flight.departure_date = departure_date
