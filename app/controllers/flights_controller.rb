@@ -15,9 +15,10 @@ class FlightsController < ApplicationController
 
   private
     def search_helper(search_params)
-      @flights = Flight.search(origin: search_params[:origin] , destination: search_params[:destination], departure_date: search_params[:departure_date].to_s)
-      @origin = Airport.find(search_params[:origin])
-      @destination = Airport.find(search_params[:destination])
+      @flights = Flight.search(search_params.except(:no_of_passengers).symbolize_keys)
+      flights_origin_and_destination = Airport.select(:location).where(id: [search_params[:origin],search_params[:destination]])
+      @origin = flights_origin_and_destination.first
+      @destination = flights_origin_and_destination.last
       @required_passengers = search_params[:no_of_passengers]
       flash[:message] = "There are no flights from #{@origin.location} to #{@destination.location}" if @flights.blank?
     end

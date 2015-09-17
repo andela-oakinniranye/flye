@@ -4,5 +4,7 @@
   <%= "Thanks for booking your flight from #{@flight.origin.location} to #{@flight.destination.location}." %>
 </p>
 <p>
-  Present this at the airport as your proof of confirmation
+  Your booking id is:
+  <strong><%= @uniq_booking_id %></strong>
+  You can present this at the airport as your proof of your flight confirmation.
 </p>

@@ -12,7 +12,12 @@
               </div>
               <div class="col-md-4 pull-right">
                   <div class="top-user-area clearfix">
+                    <%= content_tag :ul, class: 'top-user-area-list list list-horizontal list-border' do %>
+                      <%= content_tag :li do %>
+                        <%= link_to 'All Flights', flights_path %>
+                      <% end %>
                       <%= login_signout_profile_helper %>
+                    <% end %>
                   </div>
               </div>
           </div>

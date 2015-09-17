@@ -49,7 +49,7 @@
             <span>/person</span>
             <div>
               <% passengers = no_of_passengers.blank? ?  nil : {no_of_passengers: no_of_passengers} %>
-              <%= link_to 'Select', new_flight_booking_path(flight, passengers), class: "btn btn-primary" %>
+              <%= link_to 'Select', new_flight_booking_path(flight, passengers), class: "btn btn-primary", id: "btn_#{flight.id}" %>
             </div>
           </div>
         </div>

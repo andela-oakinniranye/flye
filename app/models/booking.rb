@@ -1,4 +1,6 @@
 class Booking < ActiveRecord::Base
+  include AddUniqId
+
   before_create :add_uniq_id
   before_save :calculate_cost
 
@@ -10,10 +12,6 @@ class Booking < ActiveRecord::Base
   enum status: [:unpaid, :paid]
   validate :that_it_has_passengers
   validates :flight, presence: true
-
-  def add_uniq_id
-    self.uniq_id = SecureRandom.hex
-  end
 
   def paypal_url(return_path)
     values = {
@@ -34,14 +32,15 @@ class Booking < ActiveRecord::Base
     "#{ENV['paypal_host']}/cgi-bin/webscr?cmd=_notify-validate"
   end
 
-  def calculate_cost
-    cost = flight.price * passengers.size
-    self.amount = cost
-  end
-
-  def that_it_has_passengers
-    if self.passengers.blank?
-      errors.add(:passengers, "You need to add at least one passenger")
+  private
+    def calculate_cost
+      cost = flight.price * passengers.length
+      self.amount = cost
     end
-  end
+
+    def that_it_has_passengers
+      if self.passengers.blank?
+        errors.add(:passengers, "You need to add at least one passenger")
+      end
+    end
 end

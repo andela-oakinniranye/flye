@@ -12,7 +12,6 @@ module ApplicationHelper
   end
 
   def login_signout_profile_helper
-    content_tag :ul, class: 'top-user-area-list list list-horizontal list-border' do
       if current_user
         render 'layouts/user_link'
       else
@@ -20,7 +19,6 @@ module ApplicationHelper
           link_to 'Log in', '#', data: { toggle: 'modal', target: '#myModal' }
         end
       end
-    end
   end
 
   def alert_script

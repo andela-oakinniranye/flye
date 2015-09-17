@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910144001) do
+ActiveRecord::Schema.define(version: 20150917042833) do
 
   create_table "airports", force: :cascade do |t|
     t.string   "name"
@@ -22,14 +22,15 @@ ActiveRecord::Schema.define(version: 20150910144001) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "flight_id"
     t.integer  "user_id"
-    t.integer  "status",     default: 0, null: false
+    t.integer  "status",           default: 0, null: false
     t.integer  "amount"
     t.string   "txn_id"
     t.string   "uniq_id"
+    t.integer  "passengers_count", default: 0
   end
 
   create_table "flights", force: :cascade do |t|
@@ -37,11 +38,11 @@ ActiveRecord::Schema.define(version: 20150910144001) do
     t.integer  "destination_id"
     t.datetime "departure_date"
     t.datetime "arrival_date"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "name"
-    t.integer  "passenger_count", default: 0, null: false
-    t.integer  "price",           default: 0, null: false
+    t.integer  "passengers_count", default: 0, null: false
+    t.integer  "price",            default: 0, null: false
   end
 
   add_index "flights", ["destination_id"], name: "index_flights_on_destination_id"
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150910144001) do
     t.integer  "passenger_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "uniq_id"
   end
 
   add_index "reservations", ["booking_id"], name: "index_reservations_on_booking_id"
