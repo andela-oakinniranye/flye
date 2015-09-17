@@ -9,6 +9,9 @@ Requirements
 This project requires that I implement a flight booking application which requires minimal efforts by the user, in order to search for flights given an origin and destination.
 More information about the project can be found <a href="/requirements.md">here</a>.
 <a href="https://flye.herokuapp.com">You can always Flye by visiting this link</a>
+To make payment with Paypal, use: 
+username: tester@flye.com <br>
+password: flyetester
 
 Approach
 In this sort of application, the most important considerations will be on the database associations, in order to remove redundant tables and queries amongst other things.
