@@ -7,13 +7,12 @@ Flye enables you to do this and so much more!
 
 Requirements
 This project requires that I implement a flight booking application which requires minimal efforts by the user, in order to search for flights given an origin and destination.
-More information about the project can be found <a href="/requirements">here</a>.
+More information about the project can be found <a href="/requirements.md">here</a>.
 
 Approach
 In this sort of application, the most important considerations will be on the database associations, in order to remove redundant tables and queries amongst other things.
 It also requires some thoughts on implementing the search, payment etc.
 
-<!-- First: -->
 I created two database tables: airports and flights, on which I tried different associations.
 In order not to make a redundant [origin | destination] table, there is just one airports table from which the Flight model inherits its origin/destination from.
 Some of the challenges faced and lessons learnt in this phase includes understanding some complex associations, where a Model association has_many :origin and has_many :destinations, referring to itself: refer to Airport and Flight models (app/models)
