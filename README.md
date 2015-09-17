@@ -37,7 +37,7 @@ The migration files also follows my thoughts process as regarding the models and
 
 Even though not required, I tried to also optimize my code for N+1 queries, thanks to [jeff](http://github.com/jwan622) who exposed me to the bullet gem which alerts me of these kind of queries
 
-#### Future Plans
+### Future Plans
 
 One of the things anyone would quickly notice is that the application has some extra database columns and data, which I hope to use to add extra perfomance to the application.
 
