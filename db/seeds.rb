@@ -23,7 +23,7 @@ airlines_array = ['AeroContractors', 'Air Peace', 'Allied Air', 'Arik Air', 'Ass
     Airport.create(airport)
   }
 
-100.times{
+500.times{
   forward_rand = Random.rand(0..30)
   departure_date = Faker::Time.forward(10, :morning)
   flight = Flight.new
