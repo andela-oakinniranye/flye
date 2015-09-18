@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "UserCanViewPastBookings", type: :feature do
-  
+
   scenario "Signed in user should be able to view past bookings" do
     all_flights = []
     booking_times = 3
@@ -23,7 +23,6 @@ RSpec.feature "UserCanViewPastBookings", type: :feature do
       fill_in('booking[passengers_attributes][0][first_name]', with: Faker::Name.first_name)
       fill_in('booking[passengers_attributes][0][last_name]', with: Faker::Name.last_name)
       fill_in('booking[passengers_attributes][0][email]', with: Faker::Internet.email)
-
 
       click_link_or_button('Continue')
 

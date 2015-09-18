@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-  # before_action :logged_in?, except: [:new, :create]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :check_that_user_owns_this_booking, only: [:destroy]
   before_action :can_still_cancel?, only: [:destroy]
