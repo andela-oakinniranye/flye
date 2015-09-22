@@ -51,6 +51,7 @@ gem 'bootstrap3-datetimepicker-rails'
 
 gem 'pry-rails'
 
+gem 'paginate'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -18,8 +18,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new]
   end
   root 'welcome#index'
-  
-  get '*unmatched_route', to: 'application#no_route_found'
+
+  # get '*unmatched_route', to: 'application#no_route_found'
 
   # get 'welcome/index'
 

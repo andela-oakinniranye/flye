@@ -8,7 +8,7 @@ class FlightsController < ApplicationController
       return if origin_is_same_as_destination?
       search_helper(search_params)
     else
-      @flights = Flight.fetch_all
+      @flights = Flight.fetch_all.paginate
     end
     respond_to :js, :html
   end

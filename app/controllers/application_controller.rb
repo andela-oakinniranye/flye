@@ -4,16 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
 
-  rescue_from ::ActiveRecord::RecordNotFound, with: :record_not_found
-  rescue_from ::NameError, with: :error_occurred
-  rescue_from ::ActionController::RoutingError, with: :no_route_found
-  rescue_from ::Exception, with: :error_occurred
+  # rescue_from ::ActiveRecord::RecordNotFound, with: :record_not_found
+  # rescue_from ::NameError, with: :error_occurred
+  # rescue_from ::ActionController::RoutingError, with: :no_route_found
+  # rescue_from ::Exception, with: :error_occurred
 
 
-  def no_route_found
-    flash[:danger] = "You entered an invalid address!"
-    redirect_to root_path
-  end
+  # def no_route_found
+  #   flash[:danger] = "You entered an invalid address!"
+  #   redirect_to root_path
+  # end
 
 private
   def record_not_found(exception)
