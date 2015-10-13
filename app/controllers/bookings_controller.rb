@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-  # before_action :logged_in?, except: [:new, :create]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :check_that_user_owns_this_booking, only: [:destroy]
   before_action :can_still_cancel?, only: [:destroy]
@@ -107,15 +106,14 @@ class BookingsController < ApplicationController
 
     def validate_IPN_notification(raw)
       uri = URI.parse(Booking.validate_url)
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.open_timeout = 60
-      http.read_timeout = 60
-      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      http.use_ssl = true
-      response = http.post(uri.request_uri, raw,
-                           'Content-Length' => "#{raw.size}",
-                           'User-Agent' => "Highness"
-                         ).body
+      http_client = Faraday::Connection.new(uri)
+      response = http_client.post uri.request_uri do |request|
+        request.body = raw
+        request.headers['Content-Length'] = "#{raw.size}"
+        request.headers['User-Agent'] = "Flye"
+      end
+
+      response.body
     end
 
     def check_that_user_owns_this_booking

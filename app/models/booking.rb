@@ -22,7 +22,7 @@ class Booking < ActiveRecord::Base
         amount: self.flight.price,
         item_name: "Flight booking from #{self.flight.origin.location} to #{self.flight.destination.location}",
         item_number: id,
-        quantity: self.passengers.count,
+        quantity: self.passengers_count,
         notify_url: "#{ENV['paypal_notify_url']}/hook"
     }
     "#{ENV['paypal_host']}/cgi-bin/webscr?" + values.to_query
