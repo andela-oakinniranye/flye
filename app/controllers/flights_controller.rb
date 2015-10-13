@@ -8,14 +8,14 @@ class FlightsController < ApplicationController
       return if origin_is_same_as_destination?
       search_helper(search_params)
     else
-      @flights = Flight.fetch_all.paginate
+      @flights = Flight.fetch_all.paginate(page: params[:page])
     end
     respond_to :js, :html
   end
 
   private
     def search_helper(search_params)
-      @flights = Flight.search(search_params.except(:no_of_passengers).symbolize_keys)
+      @flights = Flight.search(search_params.except(:no_of_passengers).symbolize_keys).paginate(page: params[:page])
       flights_origin_and_destination = Airport.get_names(search_params[:origin],search_params[:destination])
       @origin = flights_origin_and_destination.first
       @destination = flights_origin_and_destination.last

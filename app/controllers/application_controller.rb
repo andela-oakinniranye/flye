@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   # rescue_from ::NameError, with: :error_occurred
   # rescue_from ::ActionController::RoutingError, with: :no_route_found
   # rescue_from ::Exception, with: :error_occurred
-
-
+  #
+  #
   # def no_route_found
   #   flash[:danger] = "You entered an invalid address!"
   #   redirect_to root_path

@@ -59,6 +59,7 @@
   <% end %>
   <%= hidden_field_tag :no_of_passengers, no_of_passengers %>
   <div class="col-md-6 col-md-offset-3 text-center">
+    <%= will_paginate flights, inner_window: 1 %>
     <%= button_tag "Book Flight", class: "btn-lg btn-primary flight_select_button" %>
   </div>
 </ul>

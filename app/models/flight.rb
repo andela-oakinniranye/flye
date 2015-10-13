@@ -26,7 +26,7 @@ class Flight < ActiveRecord::Base
   end
 
   def self.closest
-    where('departure_date >= ?', DateTime.now).order(departure_date: 'asc')
+    where('departure_date >= ?', DateTime.now).order(departure_date: :asc)
   end
 
   def self.featured
